@@ -68,9 +68,9 @@ type UUID = string
 type UNLOCODE = string
 
 /** A local port call identifier issued by the port authority or an organisation authorized by the port authority
- * Must be prefixed by the UNLOCODE of the issuing port
+ * Must be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters
  * Allowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)
- * @pattern ^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\-_]+$
+ * @pattern ^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\-_]{1,32}$
  * @example NLRTM17123456 is a portcall at port NLRTM, and was designated as call number 17123456 by the NLRTM port authority
  */
 type LocalPortcallId = string
