@@ -1,0 +1,24 @@
+{
+  "uuid": "15d48214-f2db-3f06-9676-7b797d2cdd1d",
+  "version": "3.0.0",
+  "eventType": "berth.pta.terminal",
+  "source": "APMT MV2 Terminals",
+  "recordTime": "2017-06-27 00:45:12Z",
+  "eventTime": "2017-06-27 04:45:00Z",
+  "ship": {
+    "eni": "06003362"
+  },
+  "location": {
+    "type": "berth",
+    "gln": "8719331011617",
+    "name": "APMT BFQ"
+  },
+  "port": "NLRTM",
+  "context": {
+    "berthVisitId": "BID-APMTMV2-06003362_LOLIMMO2617",
+    "mooring": {
+      "bollardAft": 7,
+      "bollardFore": 13
+    }
+  }
+}

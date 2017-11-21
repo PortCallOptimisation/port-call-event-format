@@ -1,0 +1,20 @@
+{
+  "uuid": "88fb4ae4-d645-3492-8ba0-8c35e2747688",
+  "eventType": "berth.eta.portAuthority",
+  "source": "HaMIS",
+  "recordTime": "2017-08-30T13:31:01Z",
+  "eventTime": "2017-08-29T20:23:32Z",
+  "ship": {
+    "imo": "9168180"
+  },
+  "portcallId": "NLRTM17020552",
+  "location": {
+    "type": "berth",
+    "gln": "8714231756293",
+    "name": "WAALH P6 UNIPORT ZZ"
+  },
+  "port": "NLRTM",
+  "context": {
+    "movementId": "MID-HaMIS-4012855"
+  }
+}
