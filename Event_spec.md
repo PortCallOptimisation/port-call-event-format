@@ -30,7 +30,7 @@ interface IEvent {
     /** UUID identifying the event */
     uuid : UUID
     /** Follows semantic versioning, see https://semver.org */
-    version : "3.0.0"
+    version : "3.1.0"
     /** System creating the event, unique within participants */
     source: string
     eventType : EventType
@@ -40,7 +40,7 @@ interface IEvent {
     eventTime: ISO8601DateTime
     ship : IShip
     port : UNLOCODE
-    portcallId ?: UCRN
+    portcallId ?: LocalPortcallId
     location ?: IEventLocation
     context ?: IEventContext
 }
@@ -67,13 +67,13 @@ type UUID = string
  */
 type UNLOCODE = string
 
-/** A Universal Call Reference Number identifying a port call
- * A UCRN is assigned by the port authority of a port and has the following format:
- * UNLOCODE-2 digit year-6 digit unique number
- * @pattern ^[A-Z]{2}[A-Z2-9]{3}[0-9]{8}$
- * @example NLRTM17123456 is a portcall at port NLRTM in 2017, and was designated as call number 123456 by the NLRTM port authority
+/** A local port call identifier issued by the port authority or an organisation authorized by the port authority
+ * Must be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters
+ * Allowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)
+ * @pattern ^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\-_]{1,32}$
+ * @example NLRTM17123456 is a portcall at port NLRTM, and was designated as call number 17123456 by the NLRTM port authority
  */
-type UCRN = string
+type LocalPortcallId = string
 
 /** Bundles identifiers of a ship, but not information about the ship
  * At least an IMO, ENI or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI
