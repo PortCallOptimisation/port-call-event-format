@@ -30,7 +30,7 @@ interface IEvent {
     /** UUID identifying the event */
     uuid : UUID
     /** Follows semantic versioning, see https://semver.org */
-    version : "3.0.0"
+    version : "3.1.0"
     /** System creating the event, unique within participants */
     source: string
     eventType : EventType
