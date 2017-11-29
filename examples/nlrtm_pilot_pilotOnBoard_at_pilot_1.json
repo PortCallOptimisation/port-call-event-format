@@ -1,0 +1,17 @@
+{
+  "uuid": "c7e0b68b-10d6-4eff-8ba3-17ddd2d76e49",
+  "version": "3.0.0",
+  "eventType": "pilotOnBoard.at.pilot",
+  "source": "Gids",
+  "recordTime": "2017-08-31T01:46:56.398Z",
+  "eventTime": "2017-08-31T00:30:00Z",
+  "ship": {
+    "imo": "9168180",
+    "mmsi": "244127000"
+  },
+  "portcallId": "NLRTM17020552",
+  "port": "NLRTM",
+  "context": {
+    "movementId": "MID-HaMIS-4012855"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "uuid": "1a001042-b5ea-400b-93c4-6a3461cdbb6d",
+  "version": "3.0.0",
+  "eventType": "bunkerPW.ats.vessel",
+  "source": "Teqplay",
+  "recordTime": "2017-08-30T07:36:16Z",
+  "eventTime": "2017-08-30T07:36:16Z",
+  "ship": {
+    "imo": "9168180",
+    "mmsi": "244127000"
+  },
+  "portcallId": "NLRTM17020552",
+  "port": "NLRTM",
+  "context": {
+    "serviceShip": {
+      "mmsi": "244690002"
+    }
+  }
+}
