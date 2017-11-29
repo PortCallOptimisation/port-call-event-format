@@ -1,3 +1,8 @@
+# Pronto event model		
+  		  
+The pronto event model is an implementation of the funtional definitions for Nautical Port Information Standard (NPIS) 5.2.		
+ 		
+This specification is in active development, and comments from the port community are welcome.
 
 
 ## MovementId, BerthVisitId and ServiceId
