@@ -203,7 +203,7 @@
             "type": "object"
         },
         "IShip": {
-            "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI or MMSI must be provided, with IMO being prefered over ENI, and ENI being preferred over MMSI",
+            "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
             "minProperties": 1,
             "properties": {
                 "eni": {
@@ -252,8 +252,8 @@
             "type": "string"
         },
         "portcallId": {
-            "description": "A Universal Call Reference Number identifying a port call\nA UCRN is assigned by the port authority of a port and has the following format:\nUNLOCODE-2 digit year-6 digit unique number",
-            "pattern": "^[A-Z]{2}[A-Z2-9]{3}[0-9]{8}$",
+            "description": "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
+            "pattern": "^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\\-_]{1,32}$",
             "type": "string"
         },
         "recordTime": {
@@ -276,7 +276,7 @@
         "version": {
             "description": "Follows semantic versioning, see https://semver.org",
             "enum": [
-                "3.0.0"
+                "3.1.0"
             ],
             "type": "string"
         }
