@@ -107,7 +107,7 @@ interface IEventContext {
     clearance ?: boolean
     /** Used in combination with eta vessel or distanceToPort.at.vessel events, to inform how far away the vessel currently is */
     distanceToLocationNM ?: number
-    /** Actual (reported) vessel draught in meters, real number */
+    /** Maximum actual or expected static vessel draught at the event time in centimeters (integer) */
     draught ?: number
     /** Mooring information, associated with berth events */
     mooring ?: {
