@@ -1,6 +1,6 @@
-# Portcall Optimization
+# Port Call Optimisation
 
-Pronto is a project of the global [Taskforce for Portcall Optimization](https://www.portofrotterdam.com/en/shipping/port-call-optimisation) build by the Port of Rotterdam. The Taskforce Portcall Optimization agreed on functional definitions for Nautical Port Events based on current industry standards.
+Pronto is a project of the global [Taskforce for Portcall Optimisation](https://www.portofrotterdam.com/en/shipping/port-call-optimisation) facilated by the Port of Rotterdam. The Taskforce Portcall Optimisation agreed on functional definitions for Nautical Port Events based on current industry standards.
 
 # Pronto event model
 
