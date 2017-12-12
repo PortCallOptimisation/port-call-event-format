@@ -2,7 +2,7 @@ interface IEvent {
     /** UUID identifying the event */
     uuid : UUID
     /** Follows semantic versioning, see https://semver.org */
-    version : "3.1.0"
+    version : "3.1.1"
     /** System creating the event, unique within participants */
     source: string
     eventType : EventType
@@ -79,11 +79,18 @@ interface IEventLocation {
     type: EventLocationType
     gln ?: GLN
     glnExtension ?: GLNExtension
+
+    /** The Geometry Object of the GeoJSON specification:
+    *  https://tools.ietf.org/html/rfc7946#page-7
+    *  The World Geodetic System (WGS84) is used as its reference coordinate system.
+    */
+    geo ?: Geometry
+
     /** In case GLN is present, name is informative only
      * To provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.
      * In this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data
      */
-    name ?: string
+     name ?: string
 }
 
 /** Global Location Number identifying a physical location
@@ -97,6 +104,41 @@ type GLN = string
  * @pattern ^[0-9]{1,20}$
  */
 type GLNExtension = string
+
+/**
+* A Position is an array of (lon, lat) coordinates (The altitude element is not supported)
+* https://tools.ietf.org/html/rfc7946#section-3.1.1
+* Coordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84
+*/
+
+type GeoPosition = [number, number]
+
+/**
+* A subset of a GeoJSON Geometry object.
+* https://tools.ietf.org/html/rfc7946#section-3
+*/
+
+type Geometry = IPoint | IPolygon
+
+/**
+* Point geometry object.
+* https://tools.ietf.org/html/rfc7946#section-3.1.2
+*
+*/
+interface IPoint {
+    type: "Point"
+    coordinates: GeoPosition
+}
+
+/**
+* Polygon geometry object.
+* https://tools.ietf.org/html/rfc7946#section-3.1.6
+*/
+interface IPolygon {
+    type: "Polygon"
+    coordinates: GeoPosition[][]
+}
+
 
 /** EventContext is a key-value object in which users are allowed to put custom keys for any purposes
  * The following keys have pre-defined meanings within the spec
@@ -308,3 +350,7 @@ type EventParty =
     "portAuthority" |
     "terminal" |
     "tugService"
+
+type GeometryType =
+    "Point" |
+    "Polygon"
