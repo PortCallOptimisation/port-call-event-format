@@ -227,7 +227,7 @@
                             }
                         ]
                     },
-                    "description": "A Position is an array of (lon, lat) coordinates.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+                    "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
                     "items": [
                         {
                             "type": "number"
