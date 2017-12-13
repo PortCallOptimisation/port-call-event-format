@@ -350,7 +350,3 @@ type EventParty =
     "portAuthority" |
     "terminal" |
     "tugService"
-
-type GeometryType =
-    "Point" |
-    "Polygon"
