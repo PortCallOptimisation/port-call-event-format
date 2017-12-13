@@ -1,0 +1,43 @@
+{
+  "eventTime": "2017-12-10T08:00:00Z",
+  "uuid": "e9077fc3-9d72-b450-3bd0-884236e2e47a",
+  "recordTime": "2017-12-11T18:59:46Z",
+  "portcallId": "NLRTM17029123",
+  "eventType": "pilotBoardingPlace.eta.portAuthority",
+  "source": "HaMIS",
+  "location": {
+    "type": "pilotBoardingPlace",
+    "name": "MC",
+    "geo": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            3.742218017578125,
+            51.93918538346127
+          ],
+          [
+            3.9344787597656246,
+            51.93918538346127
+          ],
+          [
+            3.9344787597656246,
+            52.02038830745109
+          ],
+          [
+            3.742218017578125,
+            52.02038830745109
+          ],
+          [
+            3.742218017578125,
+            51.93918538346127
+          ]
+        ]
+      ]
+    }
+  },
+  "ship": {
+    "imo": "9300790"
+  },
+  "port": "NLRTM"
+}

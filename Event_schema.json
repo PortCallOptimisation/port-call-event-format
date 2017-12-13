@@ -120,7 +120,7 @@
                     "type": "number"
                 },
                 "draught": {
-                    "description": "Actual (reported) vessel draught in meters, real number",
+                    "description": "Maximum actual or expected static vessel draught at the event time in centimeters (integer)",
                     "type": "number"
                 },
                 "mooring": {
@@ -179,6 +179,17 @@
         "IEventLocation": {
             "description": "Identifies a physical location at which the event will take place",
             "properties": {
+                "geo": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IPoint"
+                        },
+                        {
+                            "$ref": "#/definitions/IPolygon"
+                        }
+                    ],
+                    "description": "The Geometry Object of the GeoJSON specification:\nhttps://tools.ietf.org/html/rfc7946#page-7\nThe World Geodetic System (WGS84) is used as its reference coordinate system."
+                },
                 "gln": {
                     "description": "Global Location Number identifying a physical location",
                     "pattern": "^[0-9]{13}$",
@@ -198,6 +209,89 @@
                 }
             },
             "required": [
+                "type"
+            ],
+            "type": "object"
+        },
+        "IPoint": {
+            "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
+            "properties": {
+                "coordinates": {
+                    "additionalItems": {
+                        "anyOf": [
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "description": "A Position is an array of (lon, lat) coordinates.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+                    "items": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "minItems": 2,
+                    "type": "array"
+                },
+                "type": {
+                    "enum": [
+                        "Point"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinates",
+                "type"
+            ],
+            "type": "object"
+        },
+        "IPolygon": {
+            "description": "Polygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.6",
+            "properties": {
+                "coordinates": {
+                    "items": {
+                        "items": {
+                            "additionalItems": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "number"
+                                    }
+                                ]
+                            },
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "minItems": 2,
+                            "type": "array"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "enum": [
+                        "Polygon"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinates",
                 "type"
             ],
             "type": "object"
@@ -276,7 +370,7 @@
         "version": {
             "description": "Follows semantic versioning, see https://semver.org",
             "enum": [
-                "3.1.0"
+                "3.1.1"
             ],
             "type": "string"
         }
