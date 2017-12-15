@@ -43,7 +43,7 @@ If we want to send the ETD for visit `95aba704`, the event should be as follows:
     "eventType": "berth.pta.terminal",
     // The timestamp at which this event was created, in UTC
     "recordTime": "2018-06-08T7:02:00Z",
-    // The ETD
+    // The Planned Time of Arrival (PTA) berth of the ship
     "eventTime": "2018-06-08T12:00:00Z",
     // The ship identifiers and (optional) name
     "ship": {
@@ -89,6 +89,8 @@ For terminals, the following event types will generally be the most interesting.
 | ATS Cargo  | cargoOperations.ats.terminal | The actual time at which cargo operations were started
 | ETC Cargo  | cargoOperations.etc.terminal | The estimated time at which cargo operations for the ship will be completed
 | ATC Cargo  | cargoOperations.atc.terminal | The actual time at which cargo operations for the ship were completed
+| ETD Berth  | berth.etd.terminal           | The estimated time that the ship will leave the berth, after it is un-moored
+| ATD Berth  | berth.atd.terminal           | The actual time the ship has left the berth
 | Cancel     | berth.cancel.terminal        | A planned visit will not happen
 
 [The Standards for Nautical Port Information](../Standard_for_Nautical_Port_Information.pdf) also define the following events, which currently are not incorporated into the event standards yet: <br />
