@@ -12,11 +12,11 @@ Gilo has a single terminal managing the ports 3 berths `Gilo 1`, `Gilo 2` and `G
 
 At 2018-06-08 15:00, the current berth planning for the terminal as kept in its Terminal Operating System (TOS) is as follows:
 
-# ID       # Port call     # Vessel Name    # IMO     # Berth  # Bollards # Arrival           # Departure         # *Events* #
-# -------- # ------------- # -------------- # ------- #------- # ---------# ----------------- # ----------------- # -------- #
-# 95aba704 # XXGIL18000144 # BUKHA          # 9500936 # Gilo 1 # 98-150   # 2018-06-08 14:00  # 2018-06-09 18:00  # [ETA](), [ETD](#95aba704-etd-berth), [ATA](#95aba704-eta-berth), [Cancel](#95aba704-cancel-berthvisit)
-# 17afe301 # XXGIL18000145 # PENELOPE       # 9402914 # Gilo 3 # 11.5-100 # 2018-06-08 16:00  # 2018-06-08 20:00  #
-# 17afe302 # XXGIL18000145 # PENELOPE       # 9402914 # Gilo 2 # 42-130   # 2018-06-08 22:00  # 2018-06-10 04:00  #
+| ID       | Port call     | Vessel Name    | IMO     | Berth  | Bollards | Arrival           | Departure         | *Events* |
+| -------- | ------------- | -------------- | ------- |------- | ---------| ----------------- | ----------------- | -------- |
+| 95aba704 | XXGIL18000144 | BUKHA          | 9500936 | Gilo 1 | 98-150   | 2018-06-08 14:00  | 2018-06-09 18:00  | [ETA](), [ETD](|95aba704-etd-berth), [ATA](|95aba704-eta-berth), [Cancel](|95aba704-cancel-berthvisit)
+| 17afe301 | XXGIL18000145 | PENELOPE       | 9402914 | Gilo 3 | 11.5-100 | 2018-06-08 16:00  | 2018-06-08 20:00  |
+| 17afe302 | XXGIL18000145 | PENELOPE       | 9402914 | Gilo 2 | 42-130   | 2018-06-08 22:00  | 2018-06-10 04:00  |
 
 ID: Your internal Unique, non-reused ID for the visit<br />
 Port call: The Unique identifier the Port Authority has assigned to the port visit<br />
@@ -81,14 +81,14 @@ We recommend using a date-time library for this.
 ##### Event types
 For terminals, the following event types will generally be the most interesting. A full list can be found in the specification.
 
-# Event name # ID                           # Explanation
-# PTA Berth  # berth.pta.terminal           # The planned time the ship will arrive at the berth, before it is moored
-# ATA Berth  # berth.ata.terminal           # The actual time the ship has arrived at the berth
-# ETS Cargo  # cargoOperations.ets.terminal # The estimated time at which cargo operation for the ship will start
-# ATS Cargo  # cargoOperations.ats.terminal # The actual time at which cargo operations were started
-# ETC Cargo  # cargoOperations.etc.terminal # The estimated time at which cargo operations for the ship will be completed
-# ATC Cargo  # cargoOperations.atc.terminal # The actual time at which cargo operations for the ship were completed
-# Cancel     # berth.cancel.terminal        # A planned visit will not happen
+| Event name | ID                           | Explanation
+| PTA Berth  | berth.pta.terminal           | The planned time the ship will arrive at the berth, before it is moored
+| ATA Berth  | berth.ata.terminal           | The actual time the ship has arrived at the berth
+| ETS Cargo  | cargoOperations.ets.terminal | The estimated time at which cargo operation for the ship will start
+| ATS Cargo  | cargoOperations.ats.terminal | The actual time at which cargo operations were started
+| ETC Cargo  | cargoOperations.etc.terminal | The estimated time at which cargo operations for the ship will be completed
+| ATC Cargo  | cargoOperations.atc.terminal | The actual time at which cargo operations for the ship were completed
+| Cancel     | berth.cancel.terminal        | A planned visit will not happen
 
 [The Standards for Nautical Port Information](../Standard_for_Nautical_Port_Information.pdf) also define the following events, which currently are not incorporated into the event standards yet: <br />
 First line secured/released, Last line secured/released (defined for nautical services, but not for terminals), Safe access to shore open/closed, All Fast, All Clear
