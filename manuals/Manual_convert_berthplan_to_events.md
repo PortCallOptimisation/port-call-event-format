@@ -12,7 +12,7 @@ Gilo has a single terminal managing the ports 3 berths `Gilo 1`, `Gilo 2` and `G
 
 At 2018-06-08 15:00, the current berth planning for the terminal as kept in its Terminal Operating System (TOS) is as follows:
 
-| ID       | Port call     | Vessel Name    | IMO     | Berth  | Bollards | Arrival           | Departure         | <span style="font-weight: normal;">*Events*</span> |
+| ID       | Port call     | Vessel Name    | IMO     | Berth  | Bollards | Arrival           | Departure         | <em style="font-weight: normal;">Events</em> |
 | -------- | ------------- | -------------- | ------- |------- | ---------| ----------------- | ----------------- | -------- |
 | 95aba704 | XXGIL18000144 | BUKHA          | 9500936 | Gilo 1 | 98-150   | 2018-06-08 14:00  | 2018-06-09 18:00  | [PTA](#95aba704-pta-berth), [ETD](#95aba704-etd-berth), [ATA](#95aba704-ata-berth), [Cancel](#95aba704-cancel-berthvisit)
 | 17afe301 | XXGIL18000145 | PENELOPE       | 9402914 | Gilo 3 | 11.5-100 | 2018-06-08 16:00  | 2018-06-08 20:00  | [PTA](#17afe301-pta-berth), [ETD](#17afe301-etd-berth)
