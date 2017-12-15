@@ -21,7 +21,7 @@ At 2018-06-08 15:00, the current berth planning for the terminal as kept in its 
 ID: Your internal Unique, non-reused ID for the visit<br />
 Port call: The Unique identifier the Port Authority has assigned to the port visit<br />
 Vessel name: Name of the vessel that will visit the berth<br />
-IMO: IMO number of the vessel<br />
+IMO: IMO number of the vessel. Note that ENI and MMSI numbers are also supported<br />
 Berth: The berth the vessel will visit<br />
 Timestamp: The TOS keeps 4 timestamps for each visit: Arrival, Departure, Cargo Start and Cargo Completion. Additionally each timestamp is marked as an estimate until it is confirmed by an operator to have happened.
 
