@@ -2,7 +2,7 @@ interface IEvent {
     /** UUID identifying the event */
     uuid : UUID
     /** Follows semantic versioning, see https://semver.org */
-    version : "3.1.1"
+    version : "3.2.0"
     /** System creating the event, unique within participants */
     source: string
     eventType : EventType
@@ -252,21 +252,29 @@ type EventType =
     "pilotBoardingPlace.ata.vessel" |
     "pilotBoardingPlace.atd.vessel" |
     "pilotBoardingPlace.eta.agent" |
-    "pilotBoardingPlace.eta.derived" |
     "pilotBoardingPlace.eta.pilot" |
     "pilotBoardingPlace.eta.portAuthority" |
-    "pilotBoardingPlace.eta.predictor" |
     "pilotBoardingPlace.eta.vessel" |
-    "pilotBoardingPlace.etd.predictor" |
     "pilotBoardingPlace.pta.portAuthority" |
     "pilotDisembarked.at.pilot" |
+    "pilotDisembarked.at.portAuthority" |
     "pilotDisembarked.at.vessel" |
     "pilotOnBoard.at.pilot" |
+    "pilotOnBoard.at.portAuthority" |
     "pilotOnBoard.at.vessel" |
+    "pilotOnBoard.et.pilot" |
+    "port.ata.agent" |
+    "port.ata.portAuthority" |
     "port.ata.vessel" |
+    "port.atd.agent" |
+    "port.atd.portAuthority" |
     "port.atd.vessel" |
     "port.cancel.agent" |
-    "port.declare.portAuthority" |
+    "port.cancel.portAuthority" |
+    "port.eta.agent" |
+    "port.eta.portAuthority" |
+    "port.etd.agent" |
+    "port.etd.portAuthority" |
     "portAuthority.atc.vessel" |
     "portAuthority.ats.vessel" |
     "portBasin.ata.vessel" |
