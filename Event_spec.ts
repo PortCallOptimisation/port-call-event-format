@@ -2,7 +2,7 @@ interface IEvent {
     /** UUID identifying the event */
     uuid : UUID
     /** Follows semantic versioning, see https://semver.org */
-    version : "3.2.0"
+    version : "3.2.1"
     /** System creating the event, unique within participants */
     source: string
     eventType : EventType
@@ -175,21 +175,21 @@ interface IEventContext {
     serviceId ?: ServiceId
 }
 
-/** Identifies a movement, which is a ship traveling from one location to another inside a portcall
+/** Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall
  * @see movement id spec
- * @pattern ^MID-[A-Z_]+-[A-Z_]+$
+ * @pattern ^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$
  */
 type MovementId = string
 
-/** Identifier a berth visit, which is a ship being alongside a single berth
+/** Case-insensitive identifier for a berth visit, which is a ship being alongside a single berth
  * @see berth visit id spec
- * @pattern ^BID-[A-Z_]+-[A-Z_]+$
+ * @pattern ^BID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$
  */
 type BerthVisitId = string
 
-/** Identifies a single service activity, like a bunker activity
+/** Case-insensitive identifier for a single service activity, like a bunker activity
  * @see service id spec
- * @pattern ^SID-[A-Z_]+-[A-Z_]+$
+ * @pattern ^SID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$
  */
 type ServiceId = string
 

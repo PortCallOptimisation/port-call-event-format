@@ -115,8 +115,8 @@
             "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional",
             "properties": {
                 "berthVisitId": {
-                    "description": "Identifier a berth visit, which is a ship being alongside a single berth",
-                    "pattern": "^BID-[A-Z_]+-[A-Z_]+$",
+                    "description": "Case-insensitive identifier for a berth visit, which is a ship being alongside a single berth",
+                    "pattern": "^BID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
                 "clearance": {
@@ -162,13 +162,13 @@
                     "type": "object"
                 },
                 "movementId": {
-                    "description": "Identifies a movement, which is a ship traveling from one location to another inside a portcall",
-                    "pattern": "^MID-[A-Z_]+-[A-Z_]+$",
+                    "description": "Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall",
+                    "pattern": "^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
                 "serviceId": {
-                    "description": "Identifies a single service activity, like a bunker activity",
-                    "pattern": "^SID-[A-Z_]+-[A-Z_]+$",
+                    "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
+                    "pattern": "^SID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
                 "serviceShip": {
@@ -378,7 +378,7 @@
         "version": {
             "description": "Follows semantic versioning, see https://semver.org",
             "enum": [
-                "3.1.1"
+                "3.2.1"
             ],
             "type": "string"
         }
