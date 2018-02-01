@@ -212,8 +212,10 @@ type EventType =
     "berth.eta.agent" |
     "berth.eta.pilot" |
     "berth.eta.portAuthority" |
+    "berth.eta.predictor" |
     "berth.etd.agent" |
     "berth.etd.pilot" |
+    "berth.etd.predictor" |
     "berth.etd.terminal" |
     "berth.pta.terminal" |
     "berth.ptd.portAuthority" |
@@ -254,7 +256,9 @@ type EventType =
     "pilotBoardingPlace.eta.agent" |
     "pilotBoardingPlace.eta.pilot" |
     "pilotBoardingPlace.eta.portAuthority" |
+    "pilotBoardingPlace.eta.predictor" |
     "pilotBoardingPlace.eta.vessel" |
+    "pilotBoardingPlace.etd.predictor" |
     "pilotBoardingPlace.pta.portAuthority" |
     "pilotDisembarked.at.pilot" |
     "pilotDisembarked.at.portAuthority" |
@@ -355,6 +359,7 @@ type EventParty =
     "bunkerService" |
     "linesmen" |
     "pilot" |
+    "predictor" | // A predicting party which isn't a nautical party
     "portAuthority" |
     "terminal" |
     "tugService"
