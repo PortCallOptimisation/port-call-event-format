@@ -1,7 +1,7 @@
-# Convert (berth) planning to PRONTO events
+# Convert (berth) planning to port call events
 
 A frequent question we receive is "My system only has a berth plan available".
-How do I send PRONTO events?
+How do I send port call events?
 
 This manual contains instructions on how to do this.  
 
