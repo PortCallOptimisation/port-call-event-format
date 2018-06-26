@@ -1,4 +1,4 @@
-## This manual is still in a concept fase and is open for debat and will most likely change
+<h3 style="color: #f46242;"><strong>Warning</strong>: <i>the specified events below are not yet implemented within Pronto</i></h3>
 
 # Convert carrier schedule to port call events
 We frequently receive the question from carriers how they can share their schedule with Pronto.
@@ -9,26 +9,33 @@ This manual contains instructions on how to do this.
 For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berth `Gilo 1`, `Gilo 2` and `Gilo 3`.
 
 At 2018-01-01 14:00 the latest schedule for the carrier is as follows:
-
 ### 
-| ID       | Port call     | Port  | Vessel name | IMO     | Arrival Port     | Departure Port   |
-|----------|---------------|-------|-------------|---------|------------------|------------------|
-| 077b9b08 | XXGIL18000001 | XXGIL | BUKHA       | 9500936 | 2018-01-03 17:00 | 2018-01-04 09:00 |
-| f0b2426f | XXGIL18000032 | XXGIL | PENELOPE    | 9402914 | 2018-01-05 19:00 | 2018-01-08 17:00 |
+| ID       | Port call        | Port  | Vessel name | IMO     | Arrival Port     | Arrival Pilot Boarding Place | Departure Port   | Events                                                                                                                       |
+|----------|------------------|-------|-------------|---------|------------------|------------------------------|------------------|------------------------------------------------------------------------------------------------------------------------------|
+| 077b9b08 | PID-CLA-077b9b08 | XXGIL | BUKHA       | 9500936 | 2018-01-03 17:00 | 2018-01-03 18:00             | 2018-01-04 09:00 | [ETA Port](#077b9b08-eta-port) [ETA Pilot Boarding Place](#077b9b08-eta-pilot-boarding-place) [ETD Port](#077b9b08-etd-port) |
+| f0b2426f | PID-CLA-f0b2426f | XXGIL | PENELOPE    | 9402914 | 2018-01-05 19:00 |                              | 2018-01-08 17:00 | [ETA Port](#f0b2426f-eta-port) [ETD Port](#f0b2426f-etd-port)                                                                |
 
-ID: Your internal unique, non-reused ID for the visit
+ID: Your internal unique, non-reused ID for the visit <br />
+Port call: <br />
+Port: The port which the ship will visit<br />
+Vessel name: Name of the vessel which the visit is about <br />
+IMO: IMO number of the vessel (ENI and MMSI are also supported) <br />
+Arrival Port: <br />
+
+**Note**: *For our harbour the PENELOPE has an pilotage exception certificate thus there is no need to provide pilot boarding place events.*
+
 
 
 ##### Detail view 077b9b08
-| ID        | Port call     | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  |
-|-----------|---------------|-------------|---------|--------|------------------|------------------|
-| 077b9b081 | XXGIL18000001 | BUKHA       | 9500936 | Gilo 1 | 2018-01-03 20:00 | 2018-01-04 07:00 |
+| ID        | Port call        | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                              |
+|-----------|------------------|-------------|---------|--------|------------------|------------------|---------------------------------------------------------------------|
+| 077b9b081 | PID-CLA-077b9b08 | BUKHA       | 9500936 | Gilo 1 | 2018-01-03 20:00 | 2018-01-04 07:00 | [ETA Berth](#077b9b081-eta-berth) [ETD Berth](#077b9b081-etd-berth) |
 
 ##### Detail view f0b2426f
-| ID        | Port call     | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  |
-|-----------|---------------|-------------|---------|--------|------------------|------------------|
-| f0b2426f1 | XXGIL18000032 | PENELOPE    | 9402914 | Gilo 3 | 2018-01-05 21:00 | 2018-01-06 19:00 |
-| f0b2426f2 | XXGIL18000032 | PENELOPE    | 9402914 | Gilo 2 | 2018-01-06 20:00 | 2018-01-08 15:00 |
+| ID        | Port call        | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                              |
+|-----------|------------------|-------------|---------|--------|------------------|------------------|---------------------------------------------------------------------|
+| f0b2426f1 | PID-CLA-f0b2426f | PENELOPE    | 9402914 | Gilo 3 | 2018-01-05 21:00 | 2018-01-06 19:00 | [ETA Berth](#f0b2426f1-eta-berth) [ETD Berth](#f0b2426f1-etd-berth) |
+| f0b2426f2 | PID-CLA-f0b2426f | PENELOPE    | 9402914 | Gilo 2 | 2018-01-06 20:00 | 2018-01-08 15:00 | [ETA Berth](#f0b2426f2-eta-berth) [ETD Berth](#f0b2426f2-etd-berth) |
 
 
 ## Sending events
@@ -58,7 +65,7 @@ If we want to send the ETA Port for visit `077b9b08`, the event should be as fol
   // The UNLOCODE of the port which the ship will visit
   "port": "XXGIL",
   //
-  "portcallId": "",
+  "portcallId": "PID-CLA-077b9b08",
   "location": {
     "type": "port",
     // Our port already has GLNs assigned so we can use those
@@ -112,7 +119,7 @@ If a timestamp changes in your system, you should create a new event to share th
   // The UNLOCODE of the port which the ship will visit
   "port": "XXGIL",
   //
-  "portcallId": "",
+  "portcallId": "PID-CLA-077b9b08",
   "location": {
     "type": "port"
   }
@@ -121,14 +128,14 @@ If a timestamp changes in your system, you should create a new event to share th
 
 
 ### Cancellations
-
-#### Berth visit
 Sometimes a visit is already scheduled to a port, and the carrier has already sent out events for this visit, but for some reason the ship will not visit the port (or part of it) anymore.
 
 In this case, the carrier will need to send a cancellation event to the other parties to make sure they are aware that the scheduled visit will no longer happen. 
 
 **Note**: *There is currently no way to "un-cancel" a visit and the ... cannot be re-used. It is an error to send new events with a id of a visit that has been cancelled. If a (berth) visit was cancelled but then re-scheduled, it need to have a new id.*
 
+#### Berth visit
+Let's say that for some reason the PENELOPE will no longer visit the Gilo 3 but we've already send out the ETA berth and ETD berth. The berth visit must then be cancelled and a cancel event must be send:
 ```javascript
 {
     "uuid": "1915f10d-792c-4c88-a5ad-8bee91689b53",
@@ -138,26 +145,71 @@ In this case, the carrier will need to send a cancellation event to the other pa
     "recordTime": "2018-06-08T13:30:00Z",
     "eventTime": "2018-06-08T13:30:00Z",
     "ship": {
-        "imo": "9500936",
-        "name": "BUKHA"
+        "imo": "9402914",
+        "name": "PENELOPE"
     },
     "port": "XXGIL",
-    "portcallId": "XXGIL18000144",
+    "portcallId": "PID-CLA-f0b2426f",
     "location": {
       "type": "berth",
-      "gln": "0061414000031",
-      "name": "Gilo 1"
+      "gln": "0061414000033",
+      "name": "Gilo 3"
     },
     "context": {
-      "berthVisitId": "BID-XXGILTerminal-077b9b08"
+      "berthVisitId": "BID-CLA-f0b2426f1"
     }
 }
 ```
 
 #### Visit
-If the visit to the 
+If, for example, the port is closed due to certain weather conditions the carrier can decide to re-route the BUKHA to another port. The visit must then be cancelled and a cancel event must be send: 
+
+```javascript
+{
+    "uuid": "34b4c6e7-ddc2-4678-b37c-48e0795a8bfa",
+    "version": "3.1.1",
+    "source": "Carrier X",
+    "eventType": "port.cancel.terminal",
+    "recordTime": "2018-06-08T13:30:00Z",
+    "eventTime": "2018-06-08T13:30:00Z",
+    "ship": {
+        "imo": "9500936",
+        "name": "BUKHA"
+    },
+    "port": "XXGIL",
+    "portcallId": "PID-CLA-077b9b08",
+    "location": {
+      "type": "berth",
+      "gln": "0061414000031",
+      "name": "Gilo 1"
+    }
+}
+```
 
 ### Other events
+
+##### 077b9b08 ETA Pilot Boarding Place
+```javascript
+{
+  "uuid": "5c8745fd-93f3-4155-9205-2df5d6e354c2",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "berth.eta.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-03T16:00:00Z",
+  "ship": {
+    "imo": "9500936",
+    "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-077b9b08",
+  "location": {
+    "type": "pilotBoardingPlace",
+    "gln": "0061414000039",
+    "name": "Gilo Pilot Boarding Area 1"
+  }
+}
+```
 
 ##### 077b9b081 ETA Berth
 ```javascript
@@ -165,12 +217,22 @@ If the visit to the
   "uuid": "5c8745fd-93f3-4155-9205-2df5d6e354c2",
   "version": "3.1.1",
   "source": "Carrier X",
-  "eventType": "berth.eta.agent",
+  "eventType": "berth.eta.carrier",
   "recordTime": "2018-01-01T12:00:00Z",
   "eventTime": "2018-01-03T18:00:00Z",
   "ship": {
     "imo": "9500936",
     "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-077b9b08",
+  "location": {
+    "type": "berth",
+    "gln": "0061414000031",
+    "name": "Gilo 1"
+  },
+  "context": {
+    "berthVisitId": "BID-CLA-077b9b081"
   }
 }
 ```
@@ -181,12 +243,22 @@ If the visit to the
   "uuid": "5c8745fd-93f3-4155-9205-2df5d6e354c2",
   "version": "3.1.1",
   "source": "Carrier X",
-  "eventType": "berth.etd.agent",
+  "eventType": "berth.etd.carrier",
   "recordTime": "2018-01-01T12:00:00Z",
   "eventTime": "2018-01-04T05:00:00Z",
   "ship": {
     "imo": "9500936",
     "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-077b9b08",
+  "location": {
+    "type": "berth",
+    "gln": "0061414000031",
+    "name": "Gilo 1"
+  },
+  "context": {
+    "berthVisitId": "BID-CLA-077b9b081"
   }
 }
 ```
@@ -194,15 +266,169 @@ If the visit to the
 ##### 077b9b08 ETD Port
 ```javascript
 {
-  "uuid": "5c8745fd-93f3-4155-9205-2df5d6e354c2",
+  "uuid": "f6da6297-bc98-493c-bb57-afdc3ec59244",
   "version": "3.1.1",
   "source": "Carrier X",
-  "eventType": "port.etd.agent",
+  "eventType": "port.etd.carrier",
   "recordTime": "2018-01-01T12:00:00Z",
-  "eventTime": "",
+  "eventTime": "2018-01-04T07:00:00Z",
   "ship": {
     "imo": "9500936",
     "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-077b9b08",
+  "location": {
+    "type": "port",
+    "gln": "006141400"
+  }
+}
+```
+
+##### f0b2426f ETA Port
+```javascript
+{
+  "uuid": "89355cb0-b12e-4af6-85ff-34cc0617f28e",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "port.eta.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-05T17:00:00Z",
+  "ship": {
+    "imo": "9402914",
+    "name": "PENELOPE"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-f0b2426f",
+  "location": {
+    "type": "port",
+    "gln": "006141400"
+  }
+}
+```
+
+##### f0b2426f1 ETA Berth
+```javascript
+{
+  "uuid": "1d95ee0e-a4ee-4f4e-bbcb-b15d3ce16d66",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "berth.eta.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-05T19:00:00Z",
+  "ship": {
+    "imo": "9500936",
+    "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-f0b2426f",
+  "location": {
+    "type": "berth",
+    "gln": "0061414000033",
+    "name": "Gilo 3"
+  },
+  "context": {
+    "berthVisitId": "BID-CLA-f0b2426f1"
+  }
+}
+```
+
+##### f0b2426f1 ETD Berth
+```javascript
+{
+  "uuid": "f09f52e4-477b-455b-88e1-21ec9ca0371f",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "berth.etd.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-06T17:00:00Z",
+  "ship": {
+    "imo": "9500936",
+    "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-f0b2426f",
+  "location": {
+    "type": "berth",
+    "gln": "0061414000033",
+    "name": "Gilo 3"
+  },
+  "context": {
+    "berthVisitId": "BID-CLA-f0b2426f1"
+  }
+}
+```
+
+##### f0b2426f2 ETA Berth
+```javascript
+{
+  "uuid": "24546dfc-088f-4a2f-a901-6369cd0b6a5a",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "berth.eta.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-06T18:00:00Z",
+  "ship": {
+    "imo": "9500936",
+    "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-f0b2426f",
+  "location": {
+    "type": "berth",
+    "gln": "0061414000032",
+    "name": "Gilo 2"
+  },
+  "context": {
+    "berthVisitId": "BID-CLA-f0b2426f2"
+  }
+}
+```
+
+##### f0b2426f2 ETD Berth
+```javascript
+{
+  "uuid": "a01b4c9c-83d6-4d9d-a126-5a74ade23c93",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "berth.etd.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-08T13:00:00Z",
+  "ship": {
+    "imo": "9500936",
+    "name": "BUKHA"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-f0b2426f",
+  "location": {
+    "type": "berth",
+    "gln": "0061414000032",
+    "name": "Gilo 2"
+  },
+  "context": {
+    "berthVisitId": "BID-CLA-f0b2426f2"
+  }
+}
+```
+
+##### f0b2426f ETD Port
+```javascript
+{
+  "uuid": "7c93d2f6-5f8a-4010-9cfe-3205085ff2be",
+  "version": "3.1.1",
+  "source": "Carrier X",
+  "eventType": "port.etd.carrier",
+  "recordTime": "2018-01-01T12:00:00Z",
+  "eventTime": "2018-01-08T15:00:00Z",
+  "ship": {
+    "imo": "9402914",
+    "name": "PENELOPE"
+  },
+  "port": "XXGIL",
+  "portcallId": "PID-CLA-f0b2426f",
+  "location": {
+    "type": "port",
+    "gln": "006141400"
   }
 }
 ```
