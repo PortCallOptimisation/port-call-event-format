@@ -1,12 +1,11 @@
-<h3 style="color: #f46242;"><strong>Warning</strong>: <i>the specified events below are not yet implemented within Pronto yet and thus cannot be processed</i></h3>
-
 # Convert carrier schedule to port call events
 We frequently receive the question from carriers how they can share their schedule with Pronto.
 
 This manual contains instructions on how to do this.
 
 ## Example carrier schedule
-For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berth `Gilo 1`, `Gilo 2` and `Gilo 3`. Our 
+For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berth `Gilo 1`, `Gilo 2` and `Gilo 3`.
+Our carrier is called "Carrier X" and within this example we will look at their schedule for the "Gilo" port.
 
 At 2018-01-01 14:00 the latest schedule for the carrier as kept in its Carrier Schedule System (CSS) is as follows:
 ### 
@@ -74,13 +73,11 @@ If we want to send the ETA Port for visit `077b9b08`, the event should be as fol
   // Because for our visit the Port Authority has not yet provided us with a portcall identifier we generate our own (for more information see the port call id paragraph below).
   "portcallId": "PID-CarrierX-077b9b08",
   "location": {
-    "type": "port",
-    // Our port already has GLNs assigned so we can use those
-    "gln": "006141400"
+    "type": "port"
   }
 }
 ```
-**Note**: *Be aware that the event times should be in UTC (Zulu) time. Since our carrier is currently in the +02:00 time zone, two hours need to be suntracted from the local time. We recommend using a date-time library for this.*
+**Note**: *Be aware that the event times should be in UTC (Zulu) time. Since our vessel is currently in the +02:00 time zone, two hours need to be subtracted from the local time. We recommend using a date-time library for this.*
 
 
 ### Event types
@@ -102,7 +99,6 @@ If we want to send the ETA Port for visit `077b9b08`, the event should be as fol
 | Cancel visit             | port.cancel.carrier            | A previously planned visit to the port will no longer happen                 |
 
 ### Port Call ID
-
 The port call id is a **unique, non-repeating** identifier which the system who reads your events can use to group them together. This is nessasary to work with estimations, if for example you send an ETA Port for a vessel and later send another ETA Port which is 2 days apart it could mean either
 
 1. The ETA Port for the visit has changed
@@ -110,7 +106,14 @@ The port call id is a **unique, non-repeating** identifier which the system who 
 
 By supplying a port call ID consumers can differentiate between the two: if the id is identical the event is an update, if the id is different it is a second visit.
 
-A generated port call id will have the following structure `PID-` followed by a string uniquely identify your system, e.g. your source string. 
+Within Pronto we know two different port call id's, local port call id and a source specific port call id. 
+Pronto prefers the first one over the later since this is the id other parties will use to provide information about the specific vist.
+
+#### Local Port Call ID
+The local port call id is the identifier assigned to your visit to a specific harbour by the port authority of said harbour. 
+
+#### Source Specific Port Call ID
+A source specific port call id will have the following structure `PID-` followed by a string uniquely identify your system, e.g. your source string. 
 It is then followed by a unique identifier of your choosing.
 
 ### Berth visit ID
@@ -131,7 +134,7 @@ Often terminals have a primary key in their database suitable for this, some ter
 Since these ambiguities do not exist for actual events, berth visit IDs are not a requirement for actual events.
 It is however highly recommended to still send them, since this allows easy linking of estimates and actuals.
 
-### Sending Updated
+### Sending updates
 
 If a timestamp changes in your system, you should create a new event to share this update with the other parties. Say the ETA Port for the BUKHA we send earlier becomes and ATA, we now send a new ATA event:
 ```javascript
@@ -150,7 +153,6 @@ If a timestamp changes in your system, you should create a new event to share th
   "portcallId": "PID-CarrierX-077b9b08",
   "location": {
     "type": "port"
-    "gln": "006141400"
   }
 }
 ```
@@ -161,7 +163,7 @@ Sometimes a visit is already scheduled to a port, and the carrier has already se
 
 In this case, the carrier will need to send a cancellation event to the other parties to make sure they are aware that the scheduled visit will no longer happen. 
 
-**Note**: *There is currently no way to "un-cancel" a visit and the ... cannot be re-used. It is an error to send new events with a id of a visit that has been cancelled. If a (berth) visit was cancelled but then re-scheduled, it need to have a new id.*
+**Note**: *There is currently no way to "un-cancel" a visit and the identifiers cannot be re-used. It is an error to send new events with a id of a visit that has been cancelled. If a (berth) visit was cancelled but then re-scheduled, it need to have a new id.*
 
 #### Berth visit
 Let's say that for some reason the PENELOPE will no longer visit the Gilo 3 but we've already send out the ETA berth and ETD berth. The berth visit must then be cancelled and a cancel event must be send:
@@ -308,8 +310,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "portcallId": "PID-CarrierX-077b9b08",
   "location": {
-    "type": "port",
-    "gln": "006141400"
+    "type": "port"
   }
 }
 ```
@@ -330,8 +331,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
-    "type": "port",
-    "gln": "006141400"
+    "type": "port"
   }
 }
 ```
@@ -456,8 +456,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
-    "type": "port",
-    "gln": "006141400"
+    "type": "port"
   }
 }
 ```
