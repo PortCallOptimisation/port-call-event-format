@@ -7,10 +7,10 @@ This manual contains instructions on how to do this.
 For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berth `Gilo 1`, `Gilo 2` and `Gilo 3`.
 Our carrier is called "Carrier X" and within this example we will look at their schedule for the "Gilo" port.
 
-At 2018-01-01 14:00 the latest schedule for the carrier as kept in its Carrier Schedule System (CSS) is as follows:
+At 2018-01-01 14:00 the latest schedule for the carrier as kept in its Carrier Schedule System is as follows:
 ### 
-| ID       | Port call        | Port  | Vessel name | IMO     | Arrival Port     | Arrival Pilot Boarding Place | Departure Port   | Events                                                                                                                         |
-|----------|------------------|-------|-------------|---------|------------------|------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| ID       | Port call             | Port  | Vessel name | IMO     | Arrival Port     | Arrival Pilot Boarding Place | Departure Port   | Events                                                                                                                         |
+|----------|-----------------------|-------|-------------|---------|------------------|------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | 077b9b08 | PID-CarrierX-077b9b08 | XXGIL | BUKHA       | 9500936 | 2018-01-03 17:00 | 2018-01-03 18:00             | 2018-01-04 09:00 | [ETA Port](#077b9b08-eta-port), [ETA Pilot Boarding Place](#077b9b08-eta-pilot-boarding-place), [ETD Port](#077b9b08-etd-port) |
 | f0b2426f | PID-CarrierX-f0b2426f | XXGIL | PENELOPE    | 9402914 | 2018-01-05 19:00 |                              | 2018-01-08 17:00 | [ETA Port](#f0b2426f-eta-port), [ETD Port](#f0b2426f-etd-port)                                                                 |
 
@@ -19,19 +19,19 @@ Port call: A unique identifier that could be either assigned to a port call by t
 Port: The port which the ship will visit<br />
 Vessel name: Name of the vessel which the visit is about <br />
 IMO: IMO number of the vessel (ENI and MMSI are also supported) <br />
-Timestamps: The CSS keeps 4 timestamps for a visit to a port: Arrival Port, Arrival Pilot Boarding Place, Departure Pilot Boarding Place and Departure Port.<br />
+Timestamps: The Carrier Schedule System keeps 4 timestamps for a visit to a port: Arrival Port, Arrival Pilot Boarding Place, Departure Pilot Boarding Place and Departure Port.<br />
 Additionally each timestamp is marked as an estimate until it is confirmed by an operator to have happend.
 
 **Note**: *For our harbour the PENELOPE has an pilotage exception certificate thus there is no need to provide pilot boarding place events.*
 
 ##### Detail view 077b9b08
-| ID        | Port call        | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
-|-----------|------------------|-------------|---------|--------|------------------|------------------|----------------------------------------------------------------------|
+| ID        | Port call             | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
+|-----------|-----------------------|-------------|---------|--------|------------------|------------------|----------------------------------------------------------------------|
 | 077b9b081 | PID-CarrierX-077b9b08 | BUKHA       | 9500936 | Gilo 1 | 2018-01-03 20:00 | 2018-01-04 07:00 | [ETA Berth](#077b9b081-eta-berth), [ETD Berth](#077b9b081-etd-berth) |
 
 ##### Detail view f0b2426f
-| ID        | Port call        | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
-|-----------|------------------|-------------|---------|--------|------------------|------------------|----------------------------------------------------------------------|
+| ID        | Port call             | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
+|-----------|-----------------------|-------------|---------|--------|------------------|------------------|----------------------------------------------------------------------|
 | f0b2426f1 | PID-CarrierX-f0b2426f | PENELOPE    | 9402914 | Gilo 3 | 2018-01-05 21:00 | 2018-01-06 19:00 | [ETA Berth](#f0b2426f1-eta-berth), [ETD Berth](#f0b2426f1-etd-berth) |
 | f0b2426f2 | PID-CarrierX-f0b2426f | PENELOPE    | 9402914 | Gilo 2 | 2018-01-06 20:00 | 2018-01-08 15:00 | [ETA Berth](#f0b2426f2-eta-berth), [ETD Berth](#f0b2426f2-etd-berth) |
 
@@ -41,7 +41,7 @@ Port: The port which the ship will visit<br />
 Vessel name: Name of the vessel which the visit is about <br />
 IMO: IMO number of the vessel (ENI and MMSI are also supported) <br />
 Berth: The berth the vessel will visit <br />
-Timestamps: The CSS keeps 2 timestamps for a visit to a berth: Arrival Berth  and Departure Berth.<br />
+Timestamps: The Carrier Schedule System keeps 2 timestamps for a visit to a berth: Arrival Berth  and Departure Berth.<br />
 Additionally each timestamp is marked as an estimate until it is confirmed by an operator to have happend.<br />
 
 ## Sending events
