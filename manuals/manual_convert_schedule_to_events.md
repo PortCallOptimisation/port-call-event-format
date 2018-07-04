@@ -4,18 +4,24 @@ We frequently receive the question from carriers how they can share their schedu
 This manual contains instructions on how to do this.
 
 ## Example carrier schedule
-For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berths `Gilo 1`, `Gilo 2` and `Gilo 3`.
-Our carrier is called "Carrier X" and within this example we will look at their schedule for the "Gilo" port.
+A carrier schedule usually exists out of vessels and which harbours they visit and which times.<br />
+In our example we will look at the route between two fictitious ports
+ - Gilo with UNLOCODE `XXGIL`
+ - Tilo with UNLOCODE `XXTIL`
 
-At 2018-01-01 14:00 the latest schedule for the carrier as kept in its Carrier Schedule System is as follows:
+Because our event model limits events to a single port we will focus the examples on two vessels which are headed towards the "Gilo" port.
+Gilo consists of the following berths `Gilo 1`, `Gilo 2` and `Gilo 3`.
+
+At 2018-01-01 14:00 the latest schedule for the carrier "Carrier X" as kept in their carrier schedule system is as follows:
 ### 
-| ID       | Port call             | Port  | Vessel name | IMO     | Arrival Port     | Arrival Pilot Boarding Place | Departure Port   | Events                                                                                                                         |
-|----------|-----------------------|-------|-------------|---------|------------------|------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| 077b9b08 | PID-CarrierX-077b9b08 | XXGIL | BUKHA       | 9500936 | 2018-01-03 17:00 | 2018-01-03 18:00             | 2018-01-04 09:00 | [ETA Port](#077b9b08-eta-port), [ETA Pilot Boarding Place](#077b9b08-eta-pilot-boarding-place), [ETD Port](#077b9b08-etd-port) |
-| f0b2426f | PID-CarrierX-f0b2426f | XXGIL | PENELOPE    | 9402914 | 2018-01-05 19:00 |                              | 2018-01-08 17:00 | [ETA Port](#f0b2426f-eta-port), [ETD Port](#f0b2426f-etd-port)                                                                 |
+| ID       | Port call             | Previous port | Port  | Vessel name | IMO     | Arrival Port     | Arrival Pilot Boarding Place | Departure Port   | Events                                                                                                                         |
+|----------|-----------------------|---------------|-------|-------------|---------|------------------|------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| 077b9b08 | XXGIL18000495         | XXTIL         | XXGIL | BUKHA       | 9500936 | 2018-01-03 17:00 | 2018-01-03 18:00             | 2018-01-04 09:00 | [ETA Port](#077b9b08-eta-port), [ETA Pilot Boarding Place](#077b9b08-eta-pilot-boarding-place), [ETD Port](#077b9b08-etd-port) |
+| f0b2426f | PID-CarrierX-f0b2426f | XXTIL         | XXGIL | PENELOPE    | 9402914 | 2018-01-05 19:00 |                              | 2018-01-08 17:00 | [ETA Port](#f0b2426f-eta-port), [ETD Port](#f0b2426f-etd-port)                                                                 |
 
 ID: Your internal unique, non-reused ID for the visit <br />
 Port call: A unique identifier that could be either assigned to a port call by the Port Authority or a generated <br />
+Previous port: The previous port from which the ship will sail to the port<br /> 
 Port: The port which the ship will visit<br />
 Vessel name: Name of the vessel which the visit is about <br />
 IMO: IMO number of the vessel (ENI and MMSI are also supported) <br />
@@ -25,9 +31,9 @@ Additionally each timestamp is marked as an estimate until it is confirmed by an
 **Note**: *For our harbour the PENELOPE has an pilotage exception certificate thus there is no need to provide pilot boarding place events.*
 
 ##### Detail view 077b9b08
-| ID        | Port call             | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
-|-----------|-----------------------|-------------|---------|--------|------------------|------------------|----------------------------------------------------------------------|
-| 077b9b081 | PID-CarrierX-077b9b08 | BUKHA       | 9500936 | Gilo 1 | 2018-01-03 20:00 | 2018-01-04 07:00 | [ETA Berth](#077b9b081-eta-berth), [ETD Berth](#077b9b081-etd-berth) |
+| ID        | Port call     | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
+|-----------|---------------|-------------|---------|--------|------------------|------------------|----------------------------------------------------------------------|
+| 077b9b081 | XXGIL18000495 | BUKHA       | 9500936 | Gilo 1 | 2018-01-03 20:00 | 2018-01-04 07:00 | [ETA Berth](#077b9b081-eta-berth), [ETD Berth](#077b9b081-etd-berth) |
 
 ##### Detail view f0b2426f
 | ID        | Port call             | Vessel name | IMO     | Berth  | Arrival Berth    | Departure Berth  | Events                                                               |
@@ -71,7 +77,7 @@ If we want to send the ETA Port for visit `077b9b08`, the event should be as fol
   // The UNLOCODE of the port which the ship will visit
   "port": "XXGIL",
   // Because for our visit the Port Authority has not yet provided us with a portcall identifier we generate our own (for more information see the port call id paragraph below).
-  "portcallId": "PID-CarrierX-077b9b08",
+  "portcallId": "XXGIL18000495",
   "location": {
     "type": "port"
   }
@@ -110,7 +116,7 @@ Within Pronto we know two different port call id's, local port call id and a sou
 Pronto prefers the first one over the later since this is the id other parties will use to provide information about the specific vist.
 
 #### Local Port Call ID
-The local port call id is the identifier assigned to your visit to a specific harbour by the port authority of said harbour. 
+The local port call id is the identifier assigned to your visit by the port authority of the port it will be visiting. 
 
 #### Source Specific Port Call ID
 A source specific port call id will have the following structure `PID-` followed by a string uniquely identify your system, e.g. your source string. 
@@ -150,7 +156,7 @@ If a timestamp changes in your system, you should create a new event to share th
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-077b9b08",
+  "portcallId": "XXGIL18000495",
   "location": {
     "type": "port"
   }
@@ -208,7 +214,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
         "name": "BUKHA"
     },
     "port": "XXGIL",
-    "portcallId": "PID-CarrierX-077b9b08",
+    "portcallId": "XXGIL18000495",
     "location": {
       "type": "berth",
       "gln": "0061414000031",
@@ -233,7 +239,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-077b9b08",
+  "portcallId": "XXGIL18000495",
   "location": {
     "type": "pilotBoardingPlace",
     "gln": "0061414000039",
@@ -256,7 +262,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-077b9b08",
+  "portcallId": "XXGIL18000495",
   "location": {
     "type": "berth",
     "gln": "0061414000031",
@@ -282,7 +288,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-077b9b08",
+  "portcallId": "XXGIL18000495",
   "location": {
     "type": "berth",
     "gln": "0061414000031",
@@ -308,7 +314,7 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-077b9b08",
+  "portcallId": "XXGIL18000495",
   "location": {
     "type": "port"
   }
