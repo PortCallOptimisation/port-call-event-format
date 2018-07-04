@@ -4,7 +4,7 @@ We frequently receive the question from carriers how they can share their schedu
 This manual contains instructions on how to do this.
 
 ## Example carrier schedule
-For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berth `Gilo 1`, `Gilo 2` and `Gilo 3`.
+For this manual we take a fictitious port "Gilo" with UNLOCODE `XXGIL`. Gilo has a single terminal managing the ports 3 berths `Gilo 1`, `Gilo 2` and `Gilo 3`.
 Our carrier is called "Carrier X" and within this example we will look at their schedule for the "Gilo" port.
 
 At 2018-01-01 14:00 the latest schedule for the carrier as kept in its Carrier Schedule System is as follows:
