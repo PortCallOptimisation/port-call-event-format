@@ -20,7 +20,7 @@ At 2018-01-01 14:00 the latest schedule for the carrier "Carrier X" as kept in t
 | f0b2426f | PID-CarrierX-f0b2426f | XXTIL         | XXGIL | PENELOPE    | 9402914 | 2018-01-05 19:00 |                              | 2018-01-08 17:00 | [ETA Port](#f0b2426f-eta-port), [ETD Port](#f0b2426f-etd-port)                                                                 |
 
 ID: Your internal unique, non-reused ID for the visit <br />
-Port call: A unique identifier that could be either assigned to a port call by the Port Authority or a generated <br />
+Port call: A unique identifier that could be either assigned to a port call by the Port Authority or one specific to your organisation.<br />
 Previous port: The previous port from which the ship will sail to the port<br /> 
 Port: The port which the ship will visit<br />
 Vessel name: Name of the vessel which the visit is about <br />
@@ -119,8 +119,7 @@ Pronto prefers the first one over the later since this is the id other parties w
 The local port call id is the identifier assigned to your visit by the port authority of the port it will be visiting. 
 
 #### Source Specific Port Call ID
-A source specific port call id will have the following structure `PID-` followed by a string uniquely identify your system, e.g. your source string. 
-It is then followed by a unique identifier of your choosing.
+A source specific port call id will have the following structure `PID-` followed by a string uniquely identify your system, e.g. your source string. It is then followed by a unique identifier of your choosing. Because our system handles these identifiers differently they should be added to an event in its context as seen in [this example](#f0b2426f1-eta-berth)
 
 ### Berth visit ID
 
@@ -163,7 +162,6 @@ If a timestamp changes in your system, you should create a new event to share th
 }
 ```
 
-
 ### Cancellations
 Sometimes a visit is already scheduled to a port, and the carrier has already sent out events for this visit, but for some reason the ship will not visit the port (or part of it) anymore.
 
@@ -186,14 +184,14 @@ Let's say that for some reason the PENELOPE will no longer visit the Gilo 3 but 
         "name": "PENELOPE"
     },
     "port": "XXGIL",
-    "portcallId": "PID-CarrierX-f0b2426f",
     "location": {
       "type": "berth",
       "gln": "0061414000033",
       "name": "Gilo 3"
     },
     "context": {
-      "berthVisitId": "BID-CarrierX-f0b2426f1"
+      "berthVisitId": "BID-CarrierX-f0b2426f1",
+      "organisationPortcallId": "PID-CarrierX-f0b2426f"
     }
 }
 ```
@@ -335,9 +333,11 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "PENELOPE"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
     "type": "port"
+  },
+  "context": {
+    "organisationPortcallId": "PID-CarrierX-f0b2426f"
   }
 }
 ```
@@ -356,14 +356,14 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
     "type": "berth",
     "gln": "0061414000033",
     "name": "Gilo 3"
   },
   "context": {
-    "berthVisitId": "BID-CarrierX-f0b2426f1"
+    "berthVisitId": "BID-CarrierX-f0b2426f1",
+    "organisationPortcallId": "PID-CarrierX-f0b2426f"
   }
 }
 ```
@@ -382,14 +382,14 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
     "type": "berth",
     "gln": "0061414000033",
     "name": "Gilo 3"
   },
   "context": {
-    "berthVisitId": "BID-CarrierX-f0b2426f1"
+    "berthVisitId": "BID-CarrierX-f0b2426f1",
+    "organisationPortcallId": "PID-CarrierX-f0b2426f"
   }
 }
 ```
@@ -408,14 +408,14 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
     "type": "berth",
     "gln": "0061414000032",
     "name": "Gilo 2"
   },
   "context": {
-    "berthVisitId": "BID-CarrierX-f0b2426f2"
+    "berthVisitId": "BID-CarrierX-f0b2426f2",
+    "organisationPortcallId": "PID-CarrierX-f0b2426f"
   }
 }
 ```
@@ -434,14 +434,14 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "BUKHA"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
     "type": "berth",
     "gln": "0061414000032",
     "name": "Gilo 2"
   },
   "context": {
-    "berthVisitId": "BID-CarrierX-f0b2426f2"
+    "berthVisitId": "BID-CarrierX-f0b2426f2",
+    "organisationPortcallId": "PID-CarrierX-f0b2426f"
   }
 }
 ```
@@ -460,9 +460,11 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "name": "PENELOPE"
   },
   "port": "XXGIL",
-  "portcallId": "PID-CarrierX-f0b2426f",
   "location": {
     "type": "port"
+  },
+  "context": {
+    "organisationPortcallId": "PID-CarrierX-f0b2426f"
   }
 }
 ```
