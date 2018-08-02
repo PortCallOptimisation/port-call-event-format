@@ -173,6 +173,7 @@ interface IEventContext {
     movementId ?: MovementId
     berthVisitId ?: BerthVisitId
     serviceId ?: ServiceId
+    organisationPortcallId ?: OrganisationPortcallId
 }
 
 /** Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall
@@ -193,6 +194,12 @@ type BerthVisitId = string
  */
 type ServiceId = string
 
+/** Case-insensitive identifier for a single service activity, like a bunker activity
+ * @see organisation port call id spec
+ * @pattern ^PID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$
+ */
+type OrganisationPortcallId = string
+
 /** Designates the type of events
  * The format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty
  * Not all combinations are valid, they are restricted to the following specified event types
@@ -203,20 +210,25 @@ type EventType =
     "berth.ata.portAuthority" |
     "berth.ata.terminal" |
     "berth.ata.vessel" |
+    "berth.ata.carrier" |
     "berth.atd.portAuthority" |
     "berth.atd.terminal" |
     "berth.atd.vessel" |
+    "berth.ata.carrier" |
     "berth.cancel.agent" |
     "berth.cancel.portAuthority" |
     "berth.cancel.terminal" |
+    "berth.cancel.carrier" |
     "berth.eta.agent" |
     "berth.eta.pilot" |
     "berth.eta.portAuthority" |
     "berth.eta.predictor" |
     "berth.etd.agent" |
     "berth.etd.pilot" |
+    "berth.etd.carrier" |
     "berth.etd.predictor" |
     "berth.etd.terminal" |
+    "berth.etd.carrier" |
     "berth.pta.terminal" |
     "berth.ptd.portAuthority" |
     "berth.ptd.terminal" |
@@ -252,13 +264,17 @@ type EventType =
     "lastLineSecured.at.linesmen" |
     "lastLineSecured.at.vessel" |
     "pilotBoardingPlace.ata.vessel" |
+    "pilotBoardingPlace.ata.carrier" |
     "pilotBoardingPlace.atd.vessel" |
+    "pilotBoardingPlace.atd.carrier" |
     "pilotBoardingPlace.eta.agent" |
     "pilotBoardingPlace.eta.pilot" |
     "pilotBoardingPlace.eta.portAuthority" |
     "pilotBoardingPlace.eta.predictor" |
     "pilotBoardingPlace.eta.vessel" |
+    "pilotBoardingPlace.eta.carrier" |
     "pilotBoardingPlace.etd.predictor" |
+    "pilotBoardingPlace.etd.carrier" |
     "pilotBoardingPlace.pta.portAuthority" |
     "pilotDisembarked.at.pilot" |
     "pilotDisembarked.at.portAuthority" |
@@ -270,15 +286,20 @@ type EventType =
     "port.ata.agent" |
     "port.ata.portAuthority" |
     "port.ata.vessel" |
+    "port.ata.carrier" |
     "port.atd.agent" |
     "port.atd.portAuthority" |
     "port.atd.vessel" |
+    "port.atd.carrier" |
     "port.cancel.agent" |
     "port.cancel.portAuthority" |
+    "port.cancel.carrier" |
     "port.eta.agent" |
     "port.eta.portAuthority" |
+    "port.eta.carrier" |
     "port.etd.agent" |
     "port.etd.portAuthority" |
+    "port.etd.carrier" |
     "portAuthority.atc.vessel" |
     "portAuthority.ats.vessel" |
     "portBasin.ata.vessel" |
@@ -362,4 +383,5 @@ type EventParty =
     "predictor" | // A predicting party which isn't a nautical party
     "portAuthority" |
     "terminal" |
-    "tugService"
+    "tugService" |
+    "carrier"
