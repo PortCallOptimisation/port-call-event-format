@@ -16,8 +16,7 @@
             "type": "string"
         },
         "EventType": {
-            "description":
-                "Designates the type of events\nThe format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty\nNot all combinations are valid, they are restricted to the following specified event types",
+            "description": "Designates the type of events\nThe format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty\nNot all combinations are valid, they are restricted to the following specified event types",
             "enum": [
                 "anchorArea.ata.vessel",
                 "anchorArea.atd.vessel",
@@ -131,28 +130,23 @@
             "type": "string"
         },
         "IEventContext": {
-            "description":
-                "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional",
+            "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional",
             "properties": {
                 "berthVisitId": {
-                    "description":
-                        "Case-insensitive identifier for a berth visit, which is a ship being alongside a single berth",
+                    "description": "Case-insensitive identifier for a berth visit, which is a ship being alongside a single berth",
                     "pattern": "^BID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
                 "clearance": {
-                    "description":
-                        "Used in combination with port.xxx.portAuthority to convey whether the port authority has given clearance for the ship to enter the port",
+                    "description": "Used in combination with port.xxx.portAuthority to convey whether the port authority has given clearance for the ship to enter the port",
                     "type": "boolean"
                 },
                 "distanceToLocationNM": {
-                    "description":
-                        "Used in combination with eta vessel or distanceToPort.at.vessel events, to inform how far away the vessel currently is",
+                    "description": "Used in combination with eta vessel or distanceToPort.at.vessel events, to inform how far away the vessel currently is",
                     "type": "number"
                 },
                 "draught": {
-                    "description":
-                        "Maximum actual or expected static vessel draught at the event time in centimeters (integer)",
+                    "description": "Maximum actual or expected static vessel draught at the event time in centimeters (integer)",
                     "type": "number"
                 },
                 "mooring": {
@@ -163,13 +157,11 @@
                             "type": "number"
                         },
                         "bollardFore": {
-                            "description":
-                                "Bollard at the fore of the ship\nBollards are preferably integers, but some ports use fractional bollard numbers",
+                            "description": "Bollard at the fore of the ship\nBollards are preferably integers, but some ports use fractional bollard numbers",
                             "type": "number"
                         },
                         "doubleBanked": {
-                            "description":
-                                "True if the ship is doulbe banked, there is a ship in between it and the berth",
+                            "description": "True if the ship is doulbe banked, there is a ship in between it and the berth",
                             "type": "boolean"
                         },
                         "orientation": {
@@ -182,26 +174,22 @@
                     "type": "object"
                 },
                 "movementId": {
-                    "description":
-                        "Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall",
+                    "description": "Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall",
                     "pattern": "^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
                 "serviceId": {
-                    "description":
-                        "Case-insensitive identifier for a single service activity, like a bunker activity",
+                    "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
                     "pattern": "^SID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
                 "serviceShip": {
                     "$ref": "#/definitions/IShip",
-                    "description":
-                        "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel",
+                    "description": "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel",
                     "minProperties": 1
                 },
                 "serviceShipNumber": {
-                    "description":
-                        "The number of service ships, for when the specific service ships are not known yet",
+                    "description": "The number of service ships, for when the specific service ships are not known yet",
                     "minimum": 0,
                     "type": "number"
                 },
@@ -214,8 +202,7 @@
             "type": "object"
         },
         "IEventLocation": {
-            "description":
-                "Identifies a physical location at which the event will take place",
+            "description": "Identifies a physical location at which the event will take place",
             "properties": {
                 "geo": {
                     "anyOf": [
@@ -226,24 +213,20 @@
                             "$ref": "#/definitions/IPolygon"
                         }
                     ],
-                    "description":
-                        "The Geometry Object of the GeoJSON specification:\nhttps://tools.ietf.org/html/rfc7946#page-7\nThe World Geodetic System (WGS84) is used as its reference coordinate system."
+                    "description": "The Geometry Object of the GeoJSON specification:\nhttps://tools.ietf.org/html/rfc7946#page-7\nThe World Geodetic System (WGS84) is used as its reference coordinate system."
                 },
                 "gln": {
-                    "description":
-                        "Global Location Number identifying a physical location",
+                    "description": "Global Location Number identifying a physical location",
                     "pattern": "^[0-9]{13}$",
                     "type": "string"
                 },
                 "glnExtension": {
-                    "description":
-                        "GLN Extension component, identifying a physical sublocation of a location",
+                    "description": "GLN Extension component, identifying a physical sublocation of a location",
                     "pattern": "^[0-9]{1,20}$",
                     "type": "string"
                 },
                 "name": {
-                    "description":
-                        "In case GLN is present, name is informative only\nTo provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.\nIn this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data",
+                    "description": "In case GLN is present, name is informative only\nTo provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.\nIn this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data",
                     "type": "string"
                 },
                 "type": {
@@ -254,8 +237,7 @@
             "type": "object"
         },
         "IPoint": {
-            "description":
-                "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
+            "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
             "properties": {
                 "coordinates": {
                     "additionalItems": {
@@ -268,8 +250,7 @@
                             }
                         ]
                     },
-                    "description":
-                        "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+                    "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
                     "items": [
                         {
                             "type": "number"
@@ -290,8 +271,7 @@
             "type": "object"
         },
         "IPolygon": {
-            "description":
-                "Polygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.6",
+            "description": "Polygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.6",
             "properties": {
                 "coordinates": {
                     "items": {
@@ -330,25 +310,21 @@
             "type": "object"
         },
         "IShip": {
-            "description":
-                "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
+            "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
             "minProperties": 1,
             "properties": {
                 "eni": {
-                    "description":
-                        "European Number of Identification (ENI) ship reference number",
+                    "description": "European Number of Identification (ENI) ship reference number",
                     "pattern": "^[0-9]{8}$",
                     "type": "string"
                 },
                 "imo": {
-                    "description":
-                        "International Maritime Organization (IMO) ship reference number",
+                    "description": "International Maritime Organization (IMO) ship reference number",
                     "pattern": "^[0-9]{7}$",
                     "type": "string"
                 },
                 "mmsi": {
-                    "description":
-                        "Maritime Mobile Service Identity, corresponding to the AIS transponder of the ship",
+                    "description": "Maritime Mobile Service Identity, corresponding to the AIS transponder of the ship",
                     "pattern": "^[0-9]{9}$",
                     "type": "string"
                 },
@@ -363,12 +339,10 @@
     "properties": {
         "context": {
             "$ref": "#/definitions/IEventContext",
-            "description":
-                "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional"
+            "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional"
         },
         "eventTime": {
-            "description":
-                "Time at which the event occured/will occur. The meaning of this should be interperted according to eventType",
+            "description": "Time at which the event occured/will occur. The meaning of this should be interperted according to eventType",
             "format": "date-time",
             "type": "string"
         },
@@ -377,8 +351,7 @@
         },
         "location": {
             "$ref": "#/definitions/IEventLocation",
-            "description":
-                "Identifies a physical location at which the event will take place"
+            "description": "Identifies a physical location at which the event will take place"
         },
         "port": {
             "description": "A UN/LOCODE designating a port",
@@ -386,8 +359,7 @@
             "type": "string"
         },
         "portcallId": {
-            "description":
-                "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
+            "description": "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
             "pattern": "^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\\-_]{1,32}$",
             "type": "string"
         },
