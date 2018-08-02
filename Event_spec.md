@@ -8,9 +8,9 @@ This specification is in active development, and comments from the port communit
 
 The event system allows for three additional identifiers in addition to portcall id's:
 * Movement identifier: this identifies a movement, which is a ship traveling from one location to another inside a portcall
-* Berth visit identifier: this identifier a berth visit, which is a ship being alongside a single berth
+* Berth visit identifier: this identifies a berth visit, which is a ship being alongside a single berth
 * Service identifier: this identifies a single service like bunkering
-* Organisation port call identifier: this identifier a visit, which is a ship its stay within a single harbour
+* Organisation port call identifier: this identifies a visit, which is a ship its stay within a single port. This is an internal identifier for an organization, independant of the port call id which is the identifier of the local port authority
 
 #### Justification
 
