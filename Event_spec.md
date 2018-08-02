@@ -4,12 +4,13 @@ The port call event format is an implementation of the funtional definitions for
  		
 This specification is in active development, and comments from the port community are welcome.
 
-## MovementId, BerthVisitId and ServiceId
+## MovementId, BerthVisitId, ServiceId and OrganisationPortcallId
 
 The event system allows for three additional identifiers in addition to portcall id's:
 * Movement identifier: this identifies a movement, which is a ship traveling from one location to another inside a portcall
 * Berth visit identifier: this identifier a berth visit, which is a ship being alongside a single berth
 * Service identifier: this identifies a single service like bunkering
+* Organisation port call identifier: this identifier a visit, which is a ship its stay within a single harbour
 
 #### Justification
 
@@ -27,11 +28,12 @@ Note that these ambiguities usually do not exist with actuals, as they normally 
 
 #### Format
 
-| ID                      | Format              |
-| ----------------------- | --------------------|
-| Movement identifier     | `MID-{SYSTEM}-{ID}` |
-| Berth visit identifier  | `BID-{SYSTEM}-{ID}` |
-| Service identifier      | `SID-{SYSTEM}-{ID}` |
+| ID                                | Format              |
+| --------------------------------- | --------------------|
+| Movement identifier               | `MID-{SYSTEM}-{ID}` |
+| Berth visit identifier            | `BID-{SYSTEM}-{ID}` |
+| Service identifier                | `SID-{SYSTEM}-{ID}` |
+| Organisation port call identifier | `PID-{SYSTEM}-{ID}` |
 
 `{SYSTEM}` must be replaced by a string consisting of alphanumeric characters or an underscore (`[A-Z0-9_]`) of which can reasonably be assumed that it globally uniquely identifies the system sending events.
 
@@ -43,7 +45,7 @@ An event MUST NOT contain both a movement and berth visit identifier <br />
 A system MUST NOT use both movement and berth visit identifiers, it can only send one type in its events <br />
 A system SHOULD prefer movement identifiers over berth visit identifiers, unless it only sends events about berth activities <br />
 An event belonging to a berth visit activity with a movement identifier MUST be interpreted as belonging to the berth visit following that movement <br />
-A system MUST use the same berth visit, movement or service identifier if it sends new events about the same activity, unless that identifier was cancelled in case it MUST create a new one. <br />
+A system MUST use the same identifier if it sends new events about the same activity, unless that identifier was cancelled in case it MUST create a new one. <br />
 A system MUST NOT re-use identifiers <br />
 A system MAY omit a movement or berthvisit identifier if a portcall only has a single berthvisit and two movements (an inbound and outbound movement) <br />
 A system SHOULD NOT send new events with an identifier it previously cancelled, since those events will be considered part of the now cancelled activity. <br />
@@ -59,5 +61,5 @@ Several parties are using additional events which follow, but these have not bee
 * Whether service events should be one per service ship (`serviceShip`) or one per service activity (`serviceShips`)
 * Service information like amount of bunker fuel pumped
 * Events predicted on historical information or derived from other events
-* Agent, Carrier, and schedule information
+* Agent and schedule information
 * Several NPIS events do not have an event type yet: Gangway secured, Gangway up, All Fast, All Clear, Safe Access to Shore Open, Safe Access to Shore closed
