@@ -166,11 +166,17 @@
                         },
                         "orientation": {
                             "description": "Mooring orientation",
-                            "enum": ["Port", "Starboard"],
+                            "enum": [
+                                "Port", 
+                                "Starboard"
+                            ],
                             "type": "string"
                         }
                     },
-                    "required": ["bollardAft", "bollardFore"],
+                    "required": [
+                        "bollardAft",
+                        "bollardFore"
+                    ],
                     "type": "object"
                 },
                 "movementId": {
@@ -233,7 +239,9 @@
                     "$ref": "#/definitions/EventLocationType"
                 }
             },
-            "required": ["type"],
+            "required": [
+                "type"
+            ],
             "type": "object"
         },
         "IPoint": {
@@ -263,11 +271,16 @@
                     "type": "array"
                 },
                 "type": {
-                    "enum": ["Point"],
+                    "enum": [
+                        "Point"
+                    ],
                     "type": "string"
                 }
             },
-            "required": ["coordinates", "type"],
+            "required": [
+                "coordinates",
+                "type"
+            ],
             "type": "object"
         },
         "IPolygon": {
@@ -302,11 +315,16 @@
                     "type": "array"
                 },
                 "type": {
-                    "enum": ["Polygon"],
+                    "enum": [
+                        "Polygon"
+                    ],
                     "type": "string"
                 }
             },
-            "required": ["coordinates", "type"],
+            "required": [
+                "coordinates",
+                "type"
+            ],
             "type": "object"
         },
         "IShip": {
@@ -377,13 +395,14 @@
         },
         "uuid": {
             "description": "UUID identifying the event",
-            "pattern":
-                "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
             "type": "string"
         },
         "version": {
             "description": "Follows semantic versioning, see https://semver.org",
-            "enum": ["3.2.1"],
+            "enum": [
+                "3.2.1"
+            ],
             "type": "string"
         }
     },
