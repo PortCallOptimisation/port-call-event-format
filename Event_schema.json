@@ -29,7 +29,6 @@
                 "berth.atd.terminal",
                 "berth.atd.vessel",
                 "berth.cancel.agent",
-                "berth.cancel.carrier",
                 "berth.cancel.portAuthority",
                 "berth.cancel.terminal",
                 "berth.eta.agent",
@@ -167,7 +166,7 @@
                         "orientation": {
                             "description": "Mooring orientation",
                             "enum": [
-                                "Port", 
+                                "Port",
                                 "Starboard"
                             ],
                             "type": "string"

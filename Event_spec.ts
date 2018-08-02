@@ -218,7 +218,6 @@ type EventType =
     "berth.cancel.agent" |
     "berth.cancel.portAuthority" |
     "berth.cancel.terminal" |
-    "berth.cancel.carrier" |
     "berth.eta.agent" |
     "berth.eta.pilot" |
     "berth.eta.portAuthority" |
