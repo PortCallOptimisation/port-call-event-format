@@ -306,6 +306,8 @@ type EventType =
     "provision.ats.vessel" |
     "slops.atc.vessel" |
     "slops.ats.vessel" |
+    "surveyor.ets.serviceProvider" |
+    "surveyor.etc.serviceProvider" |
     "tender.atc.vessel" |
     "tender.ats.vessel" |
     "vtsArea.ata.vessel" |
@@ -350,6 +352,7 @@ type PortActivity =
     "portBasin" |
     "provision" |
     "slops" |
+    "surveyor" |
     "tender" |
     "vtsArea" |
     "waste"
@@ -377,10 +380,12 @@ type TimeType =
 type EventParty =
     "agent" |
     "bunkerService" |
+    "carrier" |
     "linesmen" |
     "pilot" |
     "predictor" | // A predicting party which isn't a nautical party
     "portAuthority" |
+    "serviceProvider" |
     "terminal" |
-    "tugService" |
-    "carrier"
+    "tugService"
+    
