@@ -231,6 +231,8 @@ type EventType =
     "berth.pta.terminal" |
     "berth.ptd.portAuthority" |
     "berth.ptd.terminal" |
+    "berth.rta.terminal" |
+    "berth.rtd.portAuthority" |
     "bunkerPW.atc.vessel" |
     "bunkerPW.ats.vessel" |
     "bunkerService.atc.bunkerService" |
@@ -275,6 +277,7 @@ type EventType =
     "pilotBoardingPlace.etd.predictor" |
     "pilotBoardingPlace.etd.carrier" |
     "pilotBoardingPlace.pta.portAuthority" |
+    "pilotBoardingPlace.rta.portAuthority" |
     "pilotDisembarked.at.pilot" |
     "pilotDisembarked.at.portAuthority" |
     "pilotDisembarked.at.vessel" |
@@ -372,7 +375,9 @@ type TimeType =
     "etd" |
     "ets" |
     "pta" |
-    "ptd"
+    "ptd" |
+    "rta" |
+    "rtd"
 
 type EventParty =
     "agent" |
