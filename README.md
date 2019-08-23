@@ -4,7 +4,7 @@ The Taskforce for Portcall Optimisation agreed on functional definitions for Nau
 
 # Port call event format
 
-The port call event format is an implementation of the funtional definitions for Nautical Port Information Standard (NPIS) 5.2.
+The port call event format is an implementation of the funtional definitions for Nautical Port Information v5.5.
 
 This specification is in active development, and comments from the port community are welcome.
 
