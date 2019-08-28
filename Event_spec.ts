@@ -162,7 +162,7 @@ interface IEventContext {
       /** True if the ship is doulbe banked, there is a ship in between it and the berth */
       doubleBanked ?: boolean,
       /** Mooring orientation */
-      orientation ?: "Port" | "Starboard"
+      orientation ?: "port" | "starboard"
     }
     /** The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel */
     serviceShip ?: IShip
