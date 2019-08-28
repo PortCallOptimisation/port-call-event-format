@@ -171,8 +171,8 @@
                         "orientation": {
                             "description": "Mooring orientation",
                             "enum": [
-                                "Port",
-                                "Starboard"
+                                "port",
+                                "starboard"
                             ],
                             "type": "string"
                         }
