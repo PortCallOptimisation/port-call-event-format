@@ -1,0 +1,19 @@
+{
+  "uuid": "e1887c4d-ee6d-4a96-b31e-c9b93183224f",
+  "eventType": "pilotOnBoard.at.pilot",
+  "source": "FDRC",
+  "recordTime": "2019-08-27T14:47:35.207Z",
+  "eventTime": "2019-08-27T14:47:00Z",
+  "ship": {
+    "imo": "9235567",
+    "name": "MAERSK GAIRLOCH"
+  },
+  "location": {
+    "type": "pilotBoardingPlace",
+    "name": "Haven"
+  },
+  "context": {
+    "organisationPortcallId": "PID-FDRC-63091"
+  },
+  "port": "GBFXT"
+}

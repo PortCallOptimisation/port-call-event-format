@@ -1,0 +1,14 @@
+{
+  "uuid": "d7a3a887-5823-4644-ade1-f0c91a43b8db",
+  "eventType": "berth.cancel.terminal",
+  "source": "FDRC",
+  "recordTime": "2019-08-29T13:15:05Z",
+  "ship": {
+    "imo": "9321524",
+    "name": "EBBA MAERSK"
+  },
+  "port": "GBFXT",
+  "context": {
+    "berthVisitId": "GBFXT-9321524-598050"
+  }
+}

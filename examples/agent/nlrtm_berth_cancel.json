@@ -1,0 +1,15 @@
+{
+  "uuid": "5ef07b51-f911-314f-8fa9-6b23207fc98e",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9330721"
+  },
+  "context": {
+    "movementId": "4740148",
+    "vesselAgent": "WILSON"
+  },
+  "source": "HaMIS",
+  "portcallId": "NLRTM19512306",
+  "eventType": "berth.cancel.agent",
+  "recordTime": "2019-08-29T09:57:56Z"
+}

@@ -1,0 +1,20 @@
+{
+  "uuid": "32aee4b2-52ab-46f5-bcbe-1c73c022cccc",
+  "eventType": "berth.ata.terminal",
+  "source": "FDRC",
+  "recordTime": "2019-08-27T17:20:05Z",
+  "eventTime": "2019-08-28T15:15:00Z",
+  "ship": {
+    "imo": "9235567",
+    "name": "MAERSK GAIRLOCH"
+  },
+  "location": {
+    "type": "berth",
+    "name": "GBFXT Berth 4"
+  },
+  "port": "GBFXT",
+  "context": {
+    "berthVisitId": "GBFXT-9235567-630910",
+    "organisationPortcallId": "PID-FDRC-63091"
+  }
+}

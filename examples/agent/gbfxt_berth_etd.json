@@ -1,0 +1,20 @@
+{
+  "uuid": "33e43acd-9542-37d6-9bb6-e9a9c4347d0a",
+  "port": "GBFXT",
+  "ship": {
+    "imo": "9592707"
+  },
+  "source": "GAC",
+  "context": {
+    "vesselAgent": "GAC",
+    "berthVisitId": "BID-GAC-243008253883",
+    "organisationPortcallId": "PID-GAC-726252"
+  },
+  "location": {
+    "name": "Berth 2",
+    "type": "berth"
+  },
+  "eventTime": "2019-08-13T01:30:00Z",
+  "eventType": "berth.etd.agent",
+  "recordTime": "2019-08-10T14:46:37Z"
+}
