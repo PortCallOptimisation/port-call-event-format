@@ -1,0 +1,16 @@
+{
+  "uuid": "164a7418-f376-4727-8dce-80a58f7d1cdf",
+  "eventType": "cargoOperations.ats.terminal",
+  "source": "FDRC",
+  "recordTime": "2019-08-27T17:10:05Z",
+  "eventTime": "2019-08-27T17:14:00Z",
+  "ship": {
+    "imo": "9235567",
+    "name": "MAERSK GAIRLOCH"
+  },
+  "port": "GBFXT",
+  "context": {
+    "berthVisitId": "GBFXT-9235567-630910",
+    "organisationPortcallId": "PID-FDRC-63091"
+  }
+}
