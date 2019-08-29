@@ -1,0 +1,23 @@
+{
+  "uuid": "c86edb75-bfa9-3fa9-affe-26998b594fb1",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9250098"
+  },
+  "source": "HaMIS",
+  "context":
+  {
+    "movementId": "4731025",
+    "vesselAgent": "VOPAK AGENCIES",
+    "reportedNumber": 1,
+    "serviceProviderCompany": "KOTUG SMIT"
+  }
+,
+  "location": {
+    "name": "EEMH RST ZZ",
+    "type": "berth"
+  },
+  "portcallId": "NLRTM19511437",
+  "eventType": "tugsToBerth.reportnumber.agent",
+  "recordTime": "2019-08-28T11:39:00Z"
+}

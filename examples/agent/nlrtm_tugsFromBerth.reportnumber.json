@@ -1,0 +1,23 @@
+{
+  "uuid": "6a831368-de22-3663-9ea8-f27f9d207d61",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9371579"
+  },
+  "source": "HaMIS",
+  "context":
+  {
+    "movementId": "4737128",
+    "vesselAgent": "VOPAK AGENCIES",
+    "reportedNumber": 2,
+    "serviceProviderCompany": "FAIRPLAY"
+  }
+,
+  "location": {
+    "name": "WAALH 5 MEIJERS NZ",
+    "type": "berth"
+  },
+  "portcallId": "NLRTM19512208",
+  "eventType": "tugsFromBerth.reportnumber.agent",
+  "recordTime": "2019-08-28T19:39:00Z"
+}

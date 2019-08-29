@@ -1,0 +1,11 @@
+{
+  "uuid": "1994dd2c-0c37-392b-b29e-13c659a2d1c5",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9330721"
+  },
+  "source": "HaMIS",
+  "portcallId": "NLRTM19511692",
+  "eventType": "port.cancel.agent",
+  "recordTime": "2019-08-29&09:57:56Z"
+}
