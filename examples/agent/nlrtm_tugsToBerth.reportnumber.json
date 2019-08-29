@@ -5,14 +5,12 @@
     "imo": "9250098"
   },
   "source": "HaMIS",
-  "context":
-  {
+  "context": {
     "movementId": "4731025",
     "vesselAgent": "VOPAK AGENCIES",
     "reportedNumber": 1,
     "serviceProviderCompany": "KOTUG SMIT"
-  }
-,
+  },
   "location": {
     "name": "EEMH RST ZZ",
     "type": "berth"
