@@ -8,7 +8,11 @@
   "context": {
     "vesselAgent": "GAC",
     "berthVisitId": "BID-GAC-243008253883",
-    "organisationPortcallId": "PID-GAC-726252"
+    "organisationPortcallId": "PID-GAC-726252",
+     "mooring": {
+        "bollardAft": 29,
+        "bollardFore": 26
+    }
   },
   "location": {
     "name": "Berth 2",
