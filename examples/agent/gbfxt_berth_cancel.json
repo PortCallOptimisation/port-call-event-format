@@ -1,0 +1,14 @@
+{
+  "uuid": "a5b46c54-6396-4d8d-a02d-35bcb4f786f5",
+  "port": "GBFXT",
+  "ship": {
+    "imo": "9592707"
+  },
+  "source": "GAC",
+  "context": {
+    "berthVisitId": "BID-GAC-243008253883",
+    "organisationPortcallId": "PID-GAC-726252"
+  },
+  "eventType": "berth.cancel.agent",
+  "recordTime": "2019-08-11T14:46:37Z"
+}
