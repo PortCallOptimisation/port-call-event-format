@@ -1,0 +1,11 @@
+{
+  "port": "ESALG",
+  "ship": {
+    "imo": "9195717"
+  },
+  "uuid": "168de9a1-c1e9-460f-8d23-0bfd29739331",
+  "source": "Port of Algeciras",
+  "portcallId": "ESALG19030680",
+  "eventType": "port.cancel.portAuthority",
+  "recordTime": "2019-12-20T15:21:26Z"
+}
