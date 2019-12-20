@@ -1,0 +1,19 @@
+{
+  "port": "ESALG",
+  "ship": {
+    "imo": "9195717"
+  },
+  "uuid": "dd6b5d74-28bb-4243-b4af-561cc6acfe09",
+  "source": "Port of Algeciras",
+  "context": {
+    "berthVisitId": "BID-PoA-19030680-6252"
+  },
+  "location": {
+    "name": "Juan Carlos I Sur",
+    "type": "berth"
+  },
+  "portcallId": "ESALG19030680",
+  "eventTime": "2019-12-14T16:00:00Z",
+  "eventType": "berth.ata.portAuthority",
+  "recordTime": "2019-12-14T16:00:30Z"
+}

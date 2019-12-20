@@ -1,0 +1,16 @@
+{
+  "port": "ESALG",
+  "ship": {
+    "imo": "9195717"
+  },
+  "uuid": "fc07eb9a-dbd3-30cd-8037-b9be71aee638",
+  "source": "Port of Algeciras",
+  "location": {
+    "name": "FONDEADERO A",
+    "type": "anchorArea"
+  },
+  "portcallId": "ESALG19030680",
+  "eventTime": "2019-12-15T20:10:57.476Z",
+  "eventType": "anchorArea.eta.portAuthority",
+  "recordTime": "2019-12-15T20:26:03.99Z"
+}

@@ -1,0 +1,16 @@
+{
+  "port": "ESALG",
+  "ship": {
+    "imo": "9195717"
+  },
+  "uuid": "ce265db0-ce1e-4899-945f-ac0a65a07efc",
+  "source": "Port of Algeciras",
+  "location": {
+    "name": "Juan Carlos I Norte",
+    "type": "berth"
+  },
+  "portcallId": "ESALG19030680",
+  "eventTime": "2019-12-15T20:10:57.476Z",
+  "eventType": "pilotDisembarked.at.pilot",
+  "recordTime": "2019-12-15T20:26:03.99Z"
+}

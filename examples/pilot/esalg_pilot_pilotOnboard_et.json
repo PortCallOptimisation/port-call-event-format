@@ -1,0 +1,16 @@
+{
+  "port": "ESALG",
+  "ship": {
+    "imo": "9195717"
+  },
+  "uuid": "8d35a8a6-d81b-3f4e-a751-b06a01f1a081",
+  "source": "Port of Algeciras",
+  "location": {
+    "name": "Algeciras Pilot Station",
+    "type": "pilotBoardingPlace"
+  },
+  "eventTime": "2019-12-24T14:30:00Z",
+  "eventType": "pilotOnBoard.et.pilot",
+  "portcallId": "ESALG19030680",
+  "recordTime": "2019-12-20T13:03:30Z"
+}
