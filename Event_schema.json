@@ -122,8 +122,9 @@
                 "provision.ats.vessel",
                 "slops.atc.vessel",
                 "slops.ats.vessel",
+                "surveyor.cancel.serviceProvider",
                 "surveyor.ets.serviceProvider",
-                "surveyor.etc.serviceProvider"
+                "surveyor.etc.serviceProvider",
                 "tender.atc.vessel",
                 "tender.ats.vessel",
                 "vtsArea.ata.vessel",

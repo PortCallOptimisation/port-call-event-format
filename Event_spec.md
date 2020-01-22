@@ -29,7 +29,7 @@ Note that these ambiguities usually do not exist with actuals, as they normally 
 #### Format
 
 | ID                                | Format              |
-| --------------------------------- | --------------------|
+|-----------------------------------|---------------------|
 | Movement identifier               | `MID-{SYSTEM}-{ID}` |
 | Berth visit identifier            | `BID-{SYSTEM}-{ID}` |
 | Service identifier                | `SID-{SYSTEM}-{ID}` |
@@ -57,7 +57,6 @@ A system MAY omit berth visit and movement identifiers for actual events <br />
 Several parties are using additional events which follow, but these have not been standarized yet:
 
 * Tug events: Tug Stand By & Ready to Assist and Tugs Dismissed
-* Estimate service events
 * Whether service events should be one per service ship (`serviceShip`) or one per service activity (`serviceShips`)
 * Service information like amount of bunker fuel pumped
 * Events predicted on historical information or derived from other events
