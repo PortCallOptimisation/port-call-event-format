@@ -1,0 +1,13 @@
+{
+  "uuid": "31313442-29d1-4ae5-8c7d-c75ffd49605b",
+  "ship": {
+    "imo": "9634098"
+  },
+  "port": "USHOU",
+  "eventType": "surveyor.cancel.serviceProvider",
+  "recordTime": "2020-01-01T00:00:00Z",
+  "context": {
+    "serviceId": "SID-SGS_HOUSTON-594e2e96-99ac-44da-a6f5-311c57986d99"
+  },
+  "source": "SGS"
+}
