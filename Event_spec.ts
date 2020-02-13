@@ -207,6 +207,10 @@ type OrganisationPortcallId = string
 type EventType =
     "anchorArea.ata.vessel" |
     "anchorArea.atd.vessel" |
+    "anchorArea.eta.portAuthority" |
+    "anchorArea.ata.portAuthority" |
+    "anchorArea.etd.portAuthority" |
+    "anchorArea.atd.portAuthority" |
     "berth.ata.portAuthority" |
     "berth.ata.terminal" |
     "berth.ata.vessel" |
