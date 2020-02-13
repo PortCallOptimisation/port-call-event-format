@@ -205,6 +205,8 @@ type OrganisationPortcallId = string
  * Not all combinations are valid, they are restricted to the following specified event types
  */
 type EventType =
+    "anchorArea.ata.vessel" |
+    "anchorArea.atd.vessel" |
     "anchorArea.eta.portAuthority" |
     "anchorArea.ata.portAuthority" |
     "anchorArea.etd.portAuthority" |
