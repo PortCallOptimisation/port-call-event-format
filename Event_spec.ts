@@ -317,6 +317,10 @@ type EventType =
     "surveyor.etc.serviceProvider" |
     "tender.atc.vessel" |
     "tender.ats.vessel" |
+    "tugsStandby.et.portAuthority" |
+    "tugsStandby.at.portAuthority" |
+    "tugsNoMoreStandby.et.portAuthority" | 
+    "tugsNoMoreStandby.at.portAuthority |
     "vtsArea.ata.vessel" |
     "vtsArea.atd.vessel" |
     "waste.atc.vessel" |
