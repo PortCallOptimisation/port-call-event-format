@@ -36,6 +36,7 @@
                 "berth.eta.pilot",
                 "berth.eta.portAuthority",
                 "berth.eta.predictor",
+                "berth.eta.terminal",
                 "berth.etd.agent",
                 "berth.etd.carrier",
                 "berth.etd.pilot",
