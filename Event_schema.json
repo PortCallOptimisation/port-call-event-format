@@ -167,7 +167,7 @@
                             "type": "number"
                         },
                         "doubleBanked": {
-                            "description": "True if the ship is doulbe banked, there is a ship in between it and the berth",
+                            "description": "True if the ship is double banked, there is a ship in between it and the berth",
                             "type": "boolean"
                         },
                         "orientation": {
