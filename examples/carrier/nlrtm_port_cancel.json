@@ -1,6 +1,6 @@
 {
   "uuid": "050a405d-40c4-4952-942a-6ee7feea038d",
-  "eventType": "port.eta.carrier",
+  "eventType": "port.cancel.carrier",
   "port": "NLRTM",
   "ship": {
     "imo": "9780469",

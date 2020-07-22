@@ -8,13 +8,12 @@
   },
   "source": "ONE",
   "context": {
-    "berthVisitId": "BID-ONE-SVPS0000094283",
+    "berthVisitId": "BID-ONE-SVPS0000094283-1",
     "organisationPortcallId": "PID-ONE-SVPS0000094283",
     "schedule": {
       "id": "id to be filled in by Carrier",
       "name": "name to be filled in by Carrier"
-    },
-    
+    }
   },
   "location": {
     "name": "APM TERMINALS ROTTERDAM",
