@@ -1,0 +1,14 @@
+{
+  "uuid": "050a405d-40c4-4952-942a-6ee7feea038d",
+  "eventType": "port.eta.carrier",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9780469",
+    "name": "MANILA MAERSK"
+  },
+  "source": "Maersk",
+  "context": {
+    "organisationPortcallId": "PID-Maersk-Y32-026W-026W-NLRTM"
+  },
+  "recordTime": "2020-07-21T10:04:37.159Z"
+}

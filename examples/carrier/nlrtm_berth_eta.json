@@ -1,0 +1,25 @@
+{
+  "uuid": "a7dca3b2-386e-4e88-9310-562426d94b99",
+  "eventType": "berth.eta.carrier",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9403619",
+    "name": "MOL PROFICIENCY"
+  },
+  "source": "ONE",
+  "context": {
+    "berthVisitId": "BID-ONE-SVPS0000094283",
+    "organisationPortcallId": "PID-ONE-SVPS0000094283",
+    "schedule": {
+      "id": "id to be filled in by Carrier",
+      "name": "name to be filled in by Carrier"
+    },
+    
+  },
+  "location": {
+    "name": "APM TERMINALS ROTTERDAM",
+    "type": "terminal"
+  },
+  "eventTime": "2020-07-28T12:00:00Z",
+  "recordTime": "2020-07-20T14:49:56Z"
+}

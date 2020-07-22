@@ -1,0 +1,23 @@
+{
+  "uuid": "3ae8fb97-e023-45c8-8a41-0149e61b1c72",
+  "eventType": "port.eta.carrier",
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9780469",
+    "name": "MANILA MAERSK"
+  },
+  "source": "Maersk",
+  "context": {
+    "schedule": {
+      "id": "431",
+      "name": "AE5"
+    },
+    "organisationPortcallId": "PID-Maersk-Y32-026W-026W-NLRTM"
+  },
+  "location": {
+    "name": "Port Of Rotterdam",
+    "type": "port"
+  },
+  "eventTime": "2020-08-01T05:00:00Z",
+  "recordTime": "2020-07-21T10:04:37.159Z"
+}
