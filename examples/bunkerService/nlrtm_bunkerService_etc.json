@@ -17,7 +17,7 @@
     "type": "berth"
   },
   "portcallId": "NLRTM202012345678",
-  "eventTime": "2020-10-18 14:00:00Z",
+  "eventTime": "2020-10-18T14:00:00Z",
   "eventType": "bunkerService.etc.bunkerService",
-  "recordTime": "2020-10-17 12:20:05.195Z"
+  "recordTime": "2020-10-17T12:20:05.195Z"
 }
