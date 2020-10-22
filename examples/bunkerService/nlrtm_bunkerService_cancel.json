@@ -1,0 +1,14 @@
+{
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9584487"
+  },
+  "uuid": "dd3d73ea-3b3c-4a36-b8b4-389556fb8cef",
+  "source": "Timetobunker",
+  "context": {
+    "serviceId": "SID-NLRTMBUNKERAPP-7e1f5c40472c48e1b7979a442a7ba79e"
+  },
+  "portcallId": "NLRTM202012345678",
+  "eventType": "bunkerService.cancel.serviceProvider",
+  "recordTime": "2020-10-17T12:20:05.195Z"
+}
