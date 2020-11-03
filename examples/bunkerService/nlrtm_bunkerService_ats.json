@@ -1,0 +1,23 @@
+{
+  "port": "NLRTM",
+  "ship": {
+    "imo": "9584487"
+  },
+  "uuid": "a06a2cab-940d-453a-ae1a-e1f0edae237e",
+  "source": "Timetobunker",
+  "context": {
+    "serviceId": "SID-NLRTMBUNKERAPP-7e1f5c40472c48e1b7979a442a7ba79e",
+    "serviceShip": {
+      "eni": "02327358",
+      "name": "Turquoise"
+    }
+  },
+  "location": {
+    "name": "AMAZONEH ECT DDE",
+    "type": "berth"
+  },
+  "portcallId": "NLRTM202012345678",
+  "eventTime": "2020-10-18T12:00:00Z",
+  "eventType": "bunkerService.ats.serviceProvider",
+  "recordTime": "2020-10-17T12:20:05.195Z"
+}
