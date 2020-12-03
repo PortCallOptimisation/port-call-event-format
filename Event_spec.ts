@@ -174,6 +174,7 @@ interface IEventContext {
     berthVisitId ?: BerthVisitId
     serviceId ?: ServiceId
     organisationPortcallId ?: OrganisationPortcallId
+    stakeholders ?: string[]
 }
 
 /** Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall
