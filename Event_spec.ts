@@ -174,6 +174,7 @@ interface IEventContext {
     berthVisitId ?: BerthVisitId
     serviceId ?: ServiceId
     organisationPortcallId ?: OrganisationPortcallId
+    /** The stakeholder ids of the stakeholders that should have access to the data from this event */
     stakeholders ?: string[]
 }
 
@@ -321,7 +322,7 @@ type EventType =
     "tugsStandby.et.portAuthority" |
     "tugsStandby.at.portAuthority" |
     "tugsNoMoreStandby.et.portAuthority" | 
-    "tugsNoMoreStandby.at.portAuthority |
+    "tugsNoMoreStandby.at.portAuthority" |
     "vtsArea.ata.vessel" |
     "vtsArea.atd.vessel" |
     "waste.atc.vessel" |
