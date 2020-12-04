@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
         "EventLocationType": {
             "description": "Specifies the type of location",
@@ -18,13 +18,16 @@
         "EventType": {
             "description": "Designates the type of events\nThe format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty\nNot all combinations are valid, they are restricted to the following specified event types",
             "enum": [
+                "anchorArea.ata.portAuthority",
                 "anchorArea.ata.vessel",
+                "anchorArea.atd.portAuthority",
                 "anchorArea.atd.vessel",
-                "berth.ata.portAuthority",
+                "anchorArea.eta.portAuthority",
+                "anchorArea.etd.portAuthority",
                 "berth.ata.carrier",
+                "berth.ata.portAuthority",
                 "berth.ata.terminal",
                 "berth.ata.vessel",
-                "berth.atd.carrier",
                 "berth.atd.portAuthority",
                 "berth.atd.terminal",
                 "berth.atd.vessel",
@@ -32,21 +35,19 @@
                 "berth.cancel.portAuthority",
                 "berth.cancel.terminal",
                 "berth.eta.agent",
-                "berth.eta.carrier",
                 "berth.eta.pilot",
                 "berth.eta.portAuthority",
                 "berth.eta.predictor",
-                "berth.eta.terminal",
                 "berth.etd.agent",
                 "berth.etd.carrier",
                 "berth.etd.pilot",
                 "berth.etd.predictor",
                 "berth.etd.terminal",
                 "berth.pta.terminal",
-                "berth.rta.terminal",
-                "berth.rtd.portAuthority",
                 "berth.ptd.portAuthority",
                 "berth.ptd.terminal",
+                "berth.rta.terminal",
+                "berth.rtd.portAuthority",
                 "bunkerPW.atc.vessel",
                 "bunkerPW.ats.vessel",
                 "bunkerService.atc.bunkerService",
@@ -123,11 +124,14 @@
                 "provision.ats.vessel",
                 "slops.atc.vessel",
                 "slops.ats.vessel",
-                "surveyor.cancel.serviceProvider",
-                "surveyor.ets.serviceProvider",
                 "surveyor.etc.serviceProvider",
+                "surveyor.ets.serviceProvider",
                 "tender.atc.vessel",
                 "tender.ats.vessel",
+                "tugsNoMoreStandby.at.portAuthority",
+                "tugsNoMoreStandby.et.portAuthority",
+                "tugsStandby.at.portAuthority",
+                "tugsStandby.et.portAuthority",
                 "vtsArea.ata.vessel",
                 "vtsArea.atd.vessel",
                 "waste.atc.vessel",
@@ -190,6 +194,11 @@
                     "pattern": "^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
                     "type": "string"
                 },
+                "organisationPortcallId": {
+                    "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
+                    "pattern": "^PID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
+                    "type": "string"
+                },
                 "serviceId": {
                     "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
                     "pattern": "^SID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
@@ -205,10 +214,12 @@
                     "minimum": 0,
                     "type": "number"
                 },
-                "organisationPortcallId": {
-                    "description": "Case-insensitive identifier for a single port call, from an organization other than the port authority",
-                    "pattern": "^PID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
-                    "type": "string"
+                "stakeholders": {
+                    "description": "The stakeholder ids of the stakeholders that should have access to the data from this event",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
@@ -424,3 +435,4 @@
     ],
     "type": "object"
 }
+
