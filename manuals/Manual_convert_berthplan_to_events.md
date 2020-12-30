@@ -57,8 +57,6 @@ If we want to send the ETD for visit `95aba704`, the event should be as follows:
     "location": {
       // Since our terminal only has berths and always knows the berth, it can always use berth
       "type": "berth",
-      // Our terminal already has GLNs assigned to all berths, so can use these
-      "gln": "0061414000031",
       "name": "Gilo 1"
     },
     "context": {
@@ -138,7 +136,6 @@ Say the ETA Berth for BUKHA we send earlier becomes an ATA, we now send a new AT
     "portcallId": "XXGIL18000144",
     "location": {
       "type": "berth",
-      "gln": "0061414000031",
       "name": "Gilo 1"
     },
     "context": {
@@ -182,7 +179,6 @@ The visit must then be cancelled and a cancel event must be send:
     "portcallId": "XXGIL18000144",
     "location": {
       "type": "berth",
-      "gln": "0061414000031",
       "name": "Gilo 1"
     },
     "context": {
@@ -211,7 +207,6 @@ The visit must then be cancelled and a cancel event must be send:
     "portcallId": "XXGIL18000144",
     "location": {
       "type": "berth",
-      "gln": "0061414000031",
       "name": "Gilo 1"
     },
     "context": {
@@ -242,7 +237,6 @@ The visit must then be cancelled and a cancel event must be send:
     "portcallId": "XXGIL18000145",
     "location": {
       "type": "berth",
-      "gln": "0061414000033",
       "name": "Gilo 3"
     },
     "context": {
@@ -273,7 +267,6 @@ The visit must then be cancelled and a cancel event must be send:
     "portcallId": "XXGIL18000145",
     "location": {
       "type": "berth",
-      "gln": "0061414000033",
       "name": "Gilo 3"
     },
     "context": {
@@ -304,7 +297,6 @@ The visit must then be cancelled and a cancel event must be send:
     "portcallId": "XXGIL18000145",
     "location": {
       "type": "berth",
-      "gln": "0061414000032",
       "name": "Gilo 2"
     },
     "context": {
@@ -335,7 +327,6 @@ The visit must then be cancelled and a cancel event must be send:
     "portcallId": "XXGIL18000145",
     "location": {
       "type": "berth",
-      "gln": "0061414000032",
       "name": "Gilo 2"
     },
     "context": {

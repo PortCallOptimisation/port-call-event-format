@@ -77,8 +77,7 @@ type MMSI = string
 /** Identifies a physical location at which the event will take place */
 interface IEventLocation {
     type: EventLocationType
-    gln ?: GLN
-    glnExtension ?: GLNExtension
+    urn ?: URN
 
     /** The Geometry Object of the GeoJSON specification:
     *  https://tools.ietf.org/html/rfc7946#page-7
@@ -86,24 +85,15 @@ interface IEventLocation {
     */
     geo ?: Geometry
 
-    /** In case GLN is present, name is informative only
-     * To provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.
-     * In this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data
+    /** In case URN is present, name is informative only
      */
      name ?: string
 }
 
-/** Global Location Number identifying a physical location
- * @see the GLN Specification: https://www.gs1.org/gln
- * @pattern ^[0-9]{13}$
+/** Uniform Resource Name identifying a physical location
+ * @pattern [uU][rR][nN]:[a-zA-Z0-9][a-zA-Z0-9-]{0,31}:[a-zA-Z0-9()+,\-.:=@;$_!*'%/?#]+
  */
-type GLN = string
-
-/** GLN Extension component, identifying a physical sublocation of a location
- * @see AI 254: https://www.gs1.org/sites/default/files/docs/barcodes/GS1_General_Specifications.pdf
- * @pattern ^[0-9]{1,20}$
- */
-type GLNExtension = string
+type URN = string
 
 /**
 * A Position is an array of (lon, lat) coordinates (The altitude element is not supported)

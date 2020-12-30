@@ -42,13 +42,6 @@ The ISO8601 format is slightly different, EPCIS and NPIS specify `YYYY-MM-DDThh:
 
 This will likely be changed in a future version of the port call event format.
 
-#### WHERE, Event location
-
-If a port call event uses GLN's, it is compatible with EPCIS.
-Currently not all ports have GLN's defined for their locations.
-
-EPCIS uses the `sgln` URN namespace to encode a GLN and GLN Extension, while a port call event has two separate fields.
-
 #### WHY, Event business context
 
 EPCIS requires businesses to create a common business vocabulary (CVB).

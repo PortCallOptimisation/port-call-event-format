@@ -10,7 +10,7 @@
   },
   "location": {
     "type": "berth",
-    "gln": "8719331011617",
+    "urn": "urn:pronto:NLRTM-PORTMAPS:BERTH:Z100/12/41",
     "name": "APMT BFQ"
   },
   "port": "NLRTM",

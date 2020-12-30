@@ -186,7 +186,6 @@ Let's say that for some reason the PENELOPE will no longer visit the Gilo 3 but 
     "port": "XXGIL",
     "location": {
       "type": "berth",
-      "gln": "0061414000033",
       "name": "Gilo 3"
     },
     "context": {
@@ -215,7 +214,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
     "portcallId": "XXGIL18000495",
     "location": {
       "type": "berth",
-      "gln": "0061414000031",
       "name": "Gilo 1"
     }
 }
@@ -240,7 +238,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "portcallId": "XXGIL18000495",
   "location": {
     "type": "pilotBoardingPlace",
-    "gln": "0061414000039",
     "name": "Gilo Pilot Boarding Area 1"
   }
 }
@@ -263,7 +260,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "portcallId": "XXGIL18000495",
   "location": {
     "type": "berth",
-    "gln": "0061414000031",
     "name": "Gilo 1"
   },
   "context": {
@@ -289,7 +285,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "portcallId": "XXGIL18000495",
   "location": {
     "type": "berth",
-    "gln": "0061414000031",
     "name": "Gilo 1"
   },
   "context": {
@@ -358,7 +353,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "location": {
     "type": "berth",
-    "gln": "0061414000033",
     "name": "Gilo 3"
   },
   "context": {
@@ -384,7 +378,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "location": {
     "type": "berth",
-    "gln": "0061414000033",
     "name": "Gilo 3"
   },
   "context": {
@@ -410,7 +403,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "location": {
     "type": "berth",
-    "gln": "0061414000032",
     "name": "Gilo 2"
   },
   "context": {
@@ -436,7 +428,6 @@ If, for example, the port is closed due to certain weather conditions the carrie
   "port": "XXGIL",
   "location": {
     "type": "berth",
-    "gln": "0061414000032",
     "name": "Gilo 2"
   },
   "context": {
