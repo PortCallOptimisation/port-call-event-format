@@ -326,7 +326,12 @@ type EventType =
     "vtsArea.ata.vessel" |
     "vtsArea.atd.vessel" |
     "waste.atc.vessel" |
-    "waste.ats.vessel"
+    "waste.ats.vessel" |
+    "waste.ets.serviceProvider" |
+    "waste.etc.serviceProvider" |
+    "waste.ats.serviceProvider" |
+    "waste.atc.serviceProvider" |
+    "waste.cancel.serviceProvider"
 
 /** Specifies the type of location */
 type EventLocationType =
