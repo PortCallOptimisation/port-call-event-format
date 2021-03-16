@@ -342,6 +342,7 @@ type EventLocationType =
     "pilotBoardingPlace" |
     "port" |
     "portBasin" |
+    "terminal" |
     "tugArea"
 
 /** Specifies the activity of the port call process*/

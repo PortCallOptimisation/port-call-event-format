@@ -11,6 +11,7 @@
                 "pilotBoardingPlace",
                 "port",
                 "portBasin",
+                "terminal",
                 "tugArea"
             ],
             "type": "string"
