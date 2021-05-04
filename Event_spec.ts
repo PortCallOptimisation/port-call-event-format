@@ -48,13 +48,14 @@ type UNLOCODE = string
 type LocalPortcallId = string
 
 /** Bundles identifiers of a ship, but not information about the ship
- * At least an IMO, ENI or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI
+ * At least an IMO, ENI, USCG or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI
  * @minProperties 1
  */
 interface IShip {
    imo ?: IMO
    eni ?: ENI
    mmsi ?: MMSI
+   uscg ?: USCG
    /** Name is informative only */
    name ?: string
 }
@@ -73,6 +74,11 @@ type ENI = string
  * @pattern ^[0-9]{9}$
  */
 type MMSI = string
+
+/** United States Coast Guard vessel identification number
+ * @pattern ^(?:[0-9]{6,8}|[a-zA-Z][0-9]{6,7}|[a-zA-Z]{2}[0-9]{6})$
+ */
+type USCG = string
 
 /** Identifies a physical location at which the event will take place */
 interface IEventLocation {

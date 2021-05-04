@@ -135,8 +135,13 @@
                 "tugsStandby.et.portAuthority",
                 "vtsArea.ata.vessel",
                 "vtsArea.atd.vessel",
+                "waste.atc.serviceProvider",
                 "waste.atc.vessel",
-                "waste.ats.vessel"
+                "waste.ats.serviceProvider",
+                "waste.ats.vessel",
+                "waste.cancel.serviceProvider",
+                "waste.etc.serviceProvider",
+                "waste.ets.serviceProvider"
             ],
             "type": "string"
         },
@@ -266,16 +271,6 @@
             "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
             "properties": {
                 "coordinates": {
-                    "additionalItems": {
-                        "anyOf": [
-                            {
-                                "type": "number"
-                            },
-                            {
-                                "type": "number"
-                            }
-                        ]
-                    },
                     "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
                     "items": [
                         {
@@ -285,6 +280,7 @@
                             "type": "number"
                         }
                     ],
+                    "maxItems": 2,
                     "minItems": 2,
                     "type": "array"
                 },
@@ -307,16 +303,7 @@
                 "coordinates": {
                     "items": {
                         "items": {
-                            "additionalItems": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "number"
-                                    }
-                                ]
-                            },
+                            "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
                             "items": [
                                 {
                                     "type": "number"
@@ -325,6 +312,7 @@
                                     "type": "number"
                                 }
                             ],
+                            "maxItems": 2,
                             "minItems": 2,
                             "type": "array"
                         },
@@ -346,7 +334,7 @@
             "type": "object"
         },
         "IShip": {
-            "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
+            "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI, USCG or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
             "minProperties": 1,
             "properties": {
                 "eni": {
@@ -366,6 +354,11 @@
                 },
                 "name": {
                     "description": "Name is informative only",
+                    "type": "string"
+                },
+                "uscg": {
+                    "description": "United States Coast Guard vessel identification number",
+                    "pattern": "^(?:[0-9]{6,8}|[a-zA-Z][0-9]{6,7}|[a-zA-Z]{2}[0-9]{6})$",
                     "type": "string"
                 }
             },
