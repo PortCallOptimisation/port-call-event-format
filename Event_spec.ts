@@ -282,7 +282,6 @@ type EventType =
     "pilotBoardingPlace.atd.carrier" |
     "pilotBoardingPlace.eta.agent" |
     "pilotBoardingPlace.eta.pilot" |
-    "pilotBoardingPlace.eta.portAuthority" |
     "pilotBoardingPlace.eta.predictor" |
     "pilotBoardingPlace.eta.vessel" |
     "pilotBoardingPlace.eta.carrier" |
