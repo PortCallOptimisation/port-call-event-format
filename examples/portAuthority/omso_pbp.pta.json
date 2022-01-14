@@ -7,7 +7,10 @@
   "uuid": "9ca609b1-0791-4513-bbbc-08245e048817",
   "source": "Port of Sohar",
   "context": {
-    "organisationPortcallId": "PID-PA-2e2b1207-6be4" //when portcallId not available
+    "organisationPortcallId": "PID-PA-2e2b1207-6be4", //when portcallId not available
+    "stakeholders": [
+      "port-of-sohar"
+    ]
   },
   "location": {
     "name": "Sohar Pilot Station",

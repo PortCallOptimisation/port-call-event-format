@@ -7,8 +7,11 @@
   "uuid": "7389d246-ffaa-441b-a797-dea4d541e34c",
   "source": "Port of Sohar",
   "context": {
-    "berthVisitId": "BID-PoA-19030680-6252",
-    "organisationPortcallId": "PID-PA-2e2b1207-6be4" //when portcallId not available
+    "berthVisitId": "BID-PA-19030680-6252",
+    "organisationPortcallId": "PID-PA-2e2b1207-6be4", //when portcallId not available
+    "stakeholders": [
+      "port-of-sohar"
+    ]
   },
   "location": {
     "name": "Berth name",
