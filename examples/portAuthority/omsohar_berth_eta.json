@@ -1,0 +1,21 @@
+{
+  "port": "OMSOH",
+  "ship": {
+    "imo": "9379349",
+    "name": "MICHEL A"
+  },
+  "uuid": "ec584488-f042-47ab-a619-2cefc2b3943b",
+  "source": "Port of Sohar",
+  "context": {
+    "berthVisitId": "BID-PoA-19030680-6252",
+    "organisationPortcallId": "PID-PA-2e2b1207-6be4" //when portcallId not available
+  },
+  "location": {
+    "name": "Berth name",
+    "type": "berth"
+  },
+  "portcallId": "OMSOH202220863",
+  "eventTime": "2022-02-02T02:30:12Z",
+  "eventType": "berth.eta.portAuthority",
+  "recordTime": "2019-12-15T03:01:21Z"
+}
