@@ -1,0 +1,23 @@
+{
+  "port": "OMSOH",
+  "ship": {
+    "imo": "9379349",
+    "name": "MICHEL A"
+  },
+  "uuid": "9ca609b1-0791-4513-bbbc-08245e048817",
+  "source": "Port of Sohar",
+  "context": {
+    "organisationPortcallId": "PID-PA-2e2b1207-6be4", //when portcallId not available
+    "stakeholders": [
+      "port-of-sohar"
+    ]
+  },
+  "location": {
+    "name": "Sohar Pilot Station",
+    "type": "pilotBoardingPlace"
+  },
+  "eventTime": "2022-02-01T21:30:12Z",
+  "eventType": "pilotBoardingPlace.pta.portAuthority",
+  "portcallId": "OMSOH202220863",
+  "recordTime": "2022-01-28T15:00:00Z"
+}
