@@ -70,7 +70,6 @@ type IMO = string
  */
 type ENI = string
 
-/** Maritime Mobile Service Identity, corresponding to the AIS transponder of the ship
  * @pattern ^[0-9]{9}$
  */
 type MMSI = string
@@ -213,53 +212,80 @@ type OrganisationPortcallId = string
  * Not all combinations are valid, they are restricted to the following specified event types
  */
 type EventType =
-    "anchorArea.ata.vessel" |
-    "anchorArea.atd.vessel" |
-    "anchorArea.eta.portAuthority" |
+    "120nm.ata.vessel" |
+    "12nm.ata.vessel" |
+    "240nm.ata.vessel" |
+    "60nm.ata.vessel" |
+    "anchorArea.ata.agent" |
     "anchorArea.ata.portAuthority" |
-    "anchorArea.etd.portAuthority" |
+    "anchorArea.ata.vessel" |
+    "anchorArea.atd.agent" |
     "anchorArea.atd.portAuthority" |
+    "anchorArea.atd.vessel" |
+    "anchorArea.eta.agent" |
+    "anchorArea.eta.carrier" |
+    "anchorArea.eta.portAuthority" |
+    "anchorArea.etd.agent" |
+    "anchorArea.etd.carrier" |
+    "anchorArea.etd.portAuthority" |
+    "berth.ata.agent" |
+    "berth.ata.carrier" |
     "berth.ata.portAuthority" |
     "berth.ata.terminal" |
     "berth.ata.vessel" |
-    "berth.ata.carrier" |
+    "berth.atd.agent" |
+    "berth.atd.carrier" |
     "berth.atd.portAuthority" |
     "berth.atd.terminal" |
     "berth.atd.vessel" |
-    "berth.ata.carrier" |
     "berth.cancel.agent" |
+    "berth.cancel.carrier" |
     "berth.cancel.portAuthority" |
     "berth.cancel.terminal" |
     "berth.eta.agent" |
+    "berth.eta.captain" |
+    "berth.eta.carrier" |
     "berth.eta.pilot" |
     "berth.eta.portAuthority" |
-    "berth.eta.predictor" |
+    "berth.eta.terminal" |
+    "berth.eta.vessel" |
     "berth.etd.agent" |
+    "berth.etd.carrier" |
     "berth.etd.pilot" |
-    "berth.etd.carrier" |
-    "berth.etd.predictor" |
+    "berth.etd.portAuthority" |
     "berth.etd.terminal" |
-    "berth.etd.carrier" |
     "berth.pta.terminal" |
     "berth.ptd.portAuthority" |
     "berth.ptd.terminal" |
-    "berth.rta.terminal" |
-    "berth.rtd.portAuthority" |
     "bunkerPW.atc.vessel" |
     "bunkerPW.ats.vessel" |
     "bunkerService.atc.bunkerService" |
     "bunkerService.atc.portAuthority" |
+    "bunkerService.atc.serviceProvider" |
     "bunkerService.atc.vessel" |
     "bunkerService.ats.bunkerService" |
     "bunkerService.ats.portAuthority" |
+    "bunkerService.ats.serviceProvider" |
     "bunkerService.ats.vessel" |
+    "bunkerService.cancel.agent" |
     "bunkerService.cancel.bunkerService" |
     "bunkerService.cancel.portAuthority" |
+    "bunkerService.cancel.serviceProvider" |
+    "bunkerService.etc.agent" |
     "bunkerService.etc.bunkerService" |
+    "bunkerService.etc.serviceProvider" |
+    "bunkerService.ets.agent" |
     "bunkerService.ets.bunkerService" |
+    "bunkerService.ets.serviceProvider" |
     "cargoOperations.atc.terminal" |
     "cargoOperations.ats.terminal" |
+    "cargoOperations.cancel.agent" |
+    "cargoOperations.cancel.serviceProvider" |
+    "cargoOperations.etc.agent" |
+    "cargoOperations.etc.serviceProvider" |
     "cargoOperations.etc.terminal" |
+    "cargoOperations.ets.agent" |
+    "cargoOperations.ets.serviceProvider" |
     "cargoOperations.ets.terminal" |
     "customs.atc.vessel" |
     "customs.ats.vessel" |
@@ -276,68 +302,118 @@ type EventType =
     "lastLineReleased.at.vessel" |
     "lastLineSecured.at.linesmen" |
     "lastLineSecured.at.vessel" |
-    "pilotBoardingPlace.ata.vessel" |
+    "movement.cancel.agent" |
     "pilotBoardingPlace.ata.carrier" |
-    "pilotBoardingPlace.atd.vessel" |
+    "pilotBoardingPlace.ata.vessel" |
     "pilotBoardingPlace.atd.carrier" |
+    "pilotBoardingPlace.atd.vessel" |
     "pilotBoardingPlace.eta.agent" |
-    "pilotBoardingPlace.eta.pilot" |
-    "pilotBoardingPlace.eta.portAuthority" |
-    "pilotBoardingPlace.eta.predictor" |
-    "pilotBoardingPlace.eta.vessel" |
     "pilotBoardingPlace.eta.carrier" |
-    "pilotBoardingPlace.etd.predictor" |
+    "pilotBoardingPlace.eta.pilot" |
+    "pilotBoardingPlace.eta.vessel" |
+    "pilotBoardingPlace.etd.agent" |
     "pilotBoardingPlace.etd.carrier" |
     "pilotBoardingPlace.pta.portAuthority" |
-    "pilotBoardingPlace.rta.portAuthority" |
     "pilotDisembarked.at.pilot" |
     "pilotDisembarked.at.portAuthority" |
     "pilotDisembarked.at.vessel" |
+    "pilotDisembarked.et.pilot" |
     "pilotOnBoard.at.pilot" |
     "pilotOnBoard.at.portAuthority" |
     "pilotOnBoard.at.vessel" |
     "pilotOnBoard.et.pilot" |
     "port.ata.agent" |
+    "port.ata.carrier" |
     "port.ata.portAuthority" |
     "port.ata.vessel" |
-    "port.ata.carrier" |
     "port.atd.agent" |
+    "port.atd.carrier" |
     "port.atd.portAuthority" |
     "port.atd.vessel" |
-    "port.atd.carrier" |
     "port.cancel.agent" |
-    "port.cancel.portAuthority" |
     "port.cancel.carrier" |
+    "port.cancel.portAuthority" |
+    "port.clearance.portAuthority" |
     "port.eta.agent" |
-    "port.eta.portAuthority" |
     "port.eta.carrier" |
+    "port.eta.portAuthority" |
     "port.etd.agent" |
-    "port.etd.portAuthority" |
     "port.etd.carrier" |
+    "port.etd.portAuthority" |
     "portAuthority.atc.vessel" |
     "portAuthority.ats.vessel" |
     "portBasin.ata.vessel" |
+    "provision.atc.serviceProvider" |
     "provision.atc.vessel" |
+    "provision.ats.serviceProvider" |
     "provision.ats.vessel" |
+    "provision.cancel.serviceProvider" |
+    "provision.etc.serviceProvider" |
+    "provision.ets.serviceProvider" |
+    "repairService.atc.serviceProvider" |
+    "repairService.ats.serviceProvider" |
+    "repairService.cancel.agent" |
+    "repairService.etc.agent" |
+    "repairService.etc.serviceProvider" |
+    "repairService.ets.agent" |
+    "repairService.ets.serviceProvider" |
+    "safeAccessToShoreOpen.et.pilot" |
     "slops.atc.vessel" |
     "slops.ats.vessel" |
-    "surveyor.ets.serviceProvider" |
+    "slops.cancel.agent" |
+    "slops.cancel.serviceProvider" |
+    "slops.etc.agent" |
+    "slops.etc.serviceProvider" |
+    "slops.ets.agent" |
+    "slops.ets.serviceProvider" |
+    "stores.cancel.agent" |
+    "stores.cancel.serviceProvider" |
+    "stores.etc.agent" |
+    "stores.etc.serviceProvider" |
+    "stores.ets.agent" |
+    "stores.ets.serviceProvider" |
+    "surveyor.atc.terminal" |
+    "surveyor.ats.terminal" |
+    "surveyor.cancel.serviceProvider" |
     "surveyor.etc.serviceProvider" |
+    "surveyor.ets.serviceProvider" |
     "tender.atc.vessel" |
     "tender.ats.vessel" |
-    "tugsStandby.et.portAuthority" |
-    "tugsStandby.at.portAuthority" |
-    "tugsNoMoreStandby.et.portAuthority" | 
+    "tugArea.ata.vessel" |
+    "tugArea.atd.vessel" |
+    "tugArea.eta.pilot" |
+    "tugsFromBerth.reportnumber.agent" |
+    "tugsFromBerth.reportnumber.portAuthority" |
     "tugsNoMoreStandby.at.portAuthority" |
+    "tugsNoMoreStandby.at.tugService" |
+    "tugsNoMoreStandby.at.vessel" |
+    "tugsNoMoreStandby.et.portAuthority" |
+    "tugsNoMoreStandby.et.tugService" |
+    "tugsStandby.at.portAuthority" |
+    "tugsStandby.at.tugService" |
+    "tugsStandby.at.vessel" |
+    "tugsStandby.et.portAuthority" |
+    "tugsStandby.et.tugService" |
+    "tugsToBerth.reportnumber.agent" |
+    "tugsToBerth.reportnumber.portAuthority" |
     "vtsArea.ata.vessel" |
     "vtsArea.atd.vessel" |
-    "waste.atc.vessel" |
-    "waste.ats.vessel" |
-    "waste.ets.serviceProvider" |
-    "waste.etc.serviceProvider" |
-    "waste.ats.serviceProvider" |
     "waste.atc.serviceProvider" |
-    "waste.cancel.serviceProvider"
+    "waste.atc.vessel" |
+    "waste.ats.serviceProvider" |
+    "waste.ats.vessel" |
+    "waste.cancel.agent" |
+    "waste.cancel.serviceProvider" |
+    "waste.etc.agent" |
+    "waste.etc.serviceProvider" |
+    "waste.ets.agent" |
+    "waste.ets.serviceProvider" |
+    "waterSupply.cancel.agent" |
+    "waterSupply.cancel.serviceProvider" |
+    "waterSupply.etc.agent" |
+    "waterSupply.etc.serviceProvider" |
+    "waterSupply.ets.agent" |
+    "waterSupply.ets.serviceProvider"
 
 /** Specifies the type of location */
 type EventLocationType =
@@ -355,13 +431,12 @@ type EventLocationType =
 type PortActivity =
     "anchorArea" |
     "approachArea" |
-    "barge" |
     "berth" |
     "bunkerPW" | // Bunkers Potable Water
     "bunkerService" |
     "cargoOperations" |
+    "customNauticalLocation" |
     "customs" |
-    "distanceToPort" |
     "fairway" |
     "firstLineReleased" |
     "firstLineSecured" |
@@ -369,18 +444,36 @@ type PortActivity =
     "immigration" |
     "lastLineReleased" |
     "lastLineSecured" |
+    "movement" |
+    "nM12" |
+    "nM120" |
+    "nM240" |
+    "nM60" |
     "pilotBoardingPlace" |
     "pilotDisembarked" |
     "pilotOnBoard" |
     "port" |
-    "portAuthority " | // Different from the port authority party, this activity defines a port authority visit to the vessel
+    "portAuthority" | // Different from the port authority party, this activity defines a port authority visit to the vessel
     "portBasin" |
+    "portMin1" |
+    "portMin2" |
     "provision" |
+    "repairService" |
+    "safeAccessToShoreClosed" |
+    "safeAccessToShoreOpen" |
     "slops" |
+    "stores" |
     "surveyor" |
     "tender" |
-    "vtsArea" |
-    "waste"
+    "tugArea" |
+    "tugsFromBerth" |
+    "tugsNoMoreStandby" |
+    "tugsStandby" |
+    "tugsToBerth" |
+    "UNKNOWN" |
+    "vTSArea" |
+    "waste" |
+    "waterSupply"
 
 /** Event time type
  * declare is a special type to allow meta-information without an event time
@@ -393,7 +486,7 @@ type TimeType =
     "atd" |
     "ats" |
     "cancel" |
-    "declare" |
+    "clearance" |
     "et" |
     "eta" |
     "etc" |
@@ -401,18 +494,17 @@ type TimeType =
     "ets" |
     "pta" |
     "ptd" |
-    "rta" |
-    "rtd"
+    "reportnumber" 
 
 type EventParty =
     "agent" |
     "bunkerService" |
+    "captain" |
     "carrier" |
     "linesmen" |
     "pilot" |
-    "predictor" | // A predicting party which isn't a nautical party
     "portAuthority" |
     "serviceProvider" |
     "terminal" |
-    "tugService"
-    
+    "tugService" |
+    "vessel"
